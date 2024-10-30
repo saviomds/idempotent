@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Idempotent</title>
+    <link rel="stylesheet" href="../css/contact.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMf6KZ6iA3eRVg8FmYp5/0cU0m6beL84G0iX6R"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo"><a href="#">Idempotent</a></div>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="menu">
+          <li><a href="/Home">Home</a></li>
+          <li><a href="/Services">Services</a></li>
+          <li><a href="/Projects">Projects</a></li>
+          <li><a href="/Blog">Blog</a></li>
+          <li><a href="/Contact" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="contact-header">
+        <h1>Contact Us</h1>
+        <p>
+          We'd love to hear from you. Please reach out with any questions or
+          feedback!
+        </p>
+      </section>
+
+      <section class="contact-container">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>
+            Feel free to reach out to us through the following contact details
+            or fill out the form below.
+          </p>
+          <ul>
+            <li><i class="fas fa-phone"></i> +250 78 6731 976</li>
+            <li><i class="fas fa-envelope"></i> support@idempotent.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</li>
+          </ul>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form action="/submit_contact" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="map-section">
+        <h2>Our Location</h2>
+        <div class="map-embed">
+          <!-- Google Maps embed -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019559981724!2d-122.41941558468162!3d37.77492967975905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064dcd09c47%3A0xd13e19f2e09d3d4b!2sSan+Francisco%2C+CA!5e0!3m2!1sen!2sus!4v1635095469580!5m2!1sen!2sus"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Idempotent. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

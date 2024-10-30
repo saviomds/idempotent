@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog | Idempotent</title>
+    <link rel="stylesheet" href="css/blog.css" />
+    <!-- Link to your CSS file -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMf6KZ6iA3eRVg8FmYp5/0cU0m6beL84G0iX6R"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo"><a href="#">Idempotent</a></div>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="menu">
+          <li><a href="/Home">Home</a></li>
+          <li><a href="/Services">Services</a></li>
+          <li><a href="/Projects">Projects</a></li>
+          <li><a href="/Blog" class="active">Blog</a></li>
+          <li><a href="/Contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="blog-header">
+        <h1>Welcome to Our Blog</h1>
+        <p>
+          Stay updated with the latest insights and trends in the tech world.
+        </p>
+      </section>
+
+      <section class="blog-container">
+        <div class="posts">
+          <article class="post-card">
+            <img src="../images/async.png" alt="Post Image 1" />
+            <div class="post-content">
+              <h2><a href="#">Understanding Asynchronous JavaScript</a></h2>
+              <p class="post-meta">
+                Posted on October 15, 2024 by <span>Admin</span>
+              </p>
+              <p class="excerpt">
+                Explore the asynchronous nature of JavaScript, covering
+                promises, async/await, and how to manage asynchronous code
+                effectively.
+              </p>
+              <p class="full-content" style="display: none">
+                This full content dives deep into asynchronous JavaScript,
+                exploring callback functions, promises, and async/await. We'll
+                go over how each of these approaches handles asynchronous code,
+                common use cases, and how you can integrate them effectively in
+                various scenarios to improve your app’s responsiveness.
+              </p>
+              <a href="#" class="read-more" onclick="showMore(this)"
+                >Read More</a
+              >
+            </div>
+          </article>
+
+          <article class="post-card">
+            <img src="../images/starting_flask.png" alt="Post Image 2" />
+            <div class="post-content">
+              <h2><a href="#">Building RESTful APIs with Python</a></h2>
+              <p class="post-meta">
+                Posted on October 10, 2024 by <span>Admin</span>
+              </p>
+              <p>
+                Learn how to create RESTful APIs using Flask and Django. We'll
+                cover best practices and common pitfalls.
+              </p>
+
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <img
+              src="../images/how-to-learn-react-js-quickly.jpeg"
+              alt="Post Image 3"
+            />
+            <div class="post-content">
+              <h2><a href="#">A Beginner's Guide to React</a></h2>
+              <p class="post-meta">
+                Posted on October 5, 2024 by <span>Admin</span>
+              </p>
+              <p>
+                Dive into the world of React, learning about components, state,
+                props, and how to build dynamic web applications.
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <img src="../images/grids.jpg" alt="Post Image 4" />
+            <div class="post-content">
+              <h2><a href="#">CSS Grid vs Flexbox: When to Use What</a></h2>
+              <p class="post-meta">
+                Posted on September 28, 2024 by <span>Admin</span>
+              </p>
+              <p>
+                Understand the differences between CSS Grid and Flexbox, and
+                learn how to choose the right layout method for your design.
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <img src="../images/Git-Tips-1-1024x524.png" alt="Post Image 5" />
+            <div class="post-content">
+              <h2><a href="#">Mastering Git: Tips and Tricks</a></h2>
+              <p class="post-meta">
+                Posted on September 20, 2024 by <span>Admin</span>
+              </p>
+              <p>
+                Git is a powerful tool for version control. Discover tips and
+                tricks that can enhance your workflow and make collaboration
+                easier.
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </article>
+        </div>
+
+        <aside class="sidebar">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">Python</a></li>
+            <li><a href="#">React</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">Git</a></li>
+          </ul>
+
+          <h3>Recent Posts</h3>
+          <ul>
+            <li><a href="#">Understanding Asynchronous JavaScript</a></li>
+            <li><a href="#">Building RESTful APIs with Python</a></li>
+            <li><a href="#">A Beginner's Guide to React</a></li>
+            <li><a href="#">CSS Grid vs Flexbox: When to Use What</a></li>
+            <li><a href="#">Mastering Git: Tips and Tricks</a></li>
+          </ul>
+
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Idempotent. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("active");
+      }
+      function showMore(button) {
+        const postContent = button.previousElementSibling;
+        const excerpt = postContent.previousElementSibling;
+
+        if (postContent.style.display === "none") {
+          postContent.style.display = "block";
+          excerpt.style.display = "none";
+          button.textContent = "Show Less";
+        } else {
+          postContent.style.display = "none";
+          excerpt.style.display = "block";
+          button.textContent = "Read More";
+        }
+      }
+    </script>
+  </body>
+</html>

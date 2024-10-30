@@ -1,0 +1,251 @@
+/* Global Styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Navbar Styles */
+header {
+  background-color: #222;
+  padding: 20px 40px;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1550px;
+  margin: 0 auto;
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 24px;
+  color: #c9c3c3;
+  font-weight: 600;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+}
+
+.menu li {
+  margin: 0 15px;
+}
+
+.menu a {
+  color: #c9c3c3;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.menu .active {
+  color: #5566ff;
+}
+
+.menu a:hover {
+  color: #f4ebed;
+}
+
+/* Hamburger Menu */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+/* Blog Header Styles */
+.blog-header {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(to right, #351119, #10143c);
+  color: #fff;
+}
+
+.blog-header h1 {
+  font-size: 36px;
+}
+
+.blog-header p {
+  font-size: 18px;
+}
+
+/* Blog Container */
+.blog-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1550px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Post Styles */
+.posts {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+}
+
+.post-card img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
+.post-content {
+  padding: 20px;
+}
+
+.post-card h2 {
+  color: #333;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.post-card p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  background-color: #5566ff;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  flex: 1;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3 {
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 5px 0;
+}
+
+.sidebar ul li a {
+  color: #5566ff;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Social Links */
+.social-links a {
+  margin-right: 10px;
+  color: #333;
+  font-size: 24px;
+}
+
+.social-links a:hover {
+  color: #5566ff;
+}
+/* CSS for 'Read More' expanded view */
+.full-content {
+  display: none; /* Initially hidden */
+  color: #666;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.read-more {
+  cursor: pointer;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: #ffffff;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .blog-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    margin-top: 20px;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #222;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
+
+@media (max-width: 410px) {
+  .logo a {
+    font-size: 20px;
+  }
+
+  .menu a {
+    font-size: 16px;
+  }
+}

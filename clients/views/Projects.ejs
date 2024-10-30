@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Projects | Idempotent</title>
+    <link rel="stylesheet" href="css/projects.css" />
+
+    <!-- Link to your CSS file -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMf6KZ6iA3eRVg8FmYp5/0cU0m6beL84G0iX6R"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo"><a href="#">Idempotent</a></div>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="menu">
+          <li><a href="/Home">Home</a></li>
+          <li><a href="/Services">Services</a></li>
+          <li><a href="/Projects" class="active">Projects</a></li>
+          <li><a href="/Blog">Blog</a></li>
+          <li><a href="/Contact">Contact</a></li>
+          <li><a href="/Login">Login</a></li>
+          <li><a href="/Register">Hello Guest</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-intro">
+        <h1>Our Projects</h1>
+        <p>
+          Explore key projects that highlight the skills and technologies
+          developers use across different programming languages.
+        </p>
+      </section>
+
+      <section class="projects-container">
+        <div class="project-card" onclick="openModal('modal-python')">
+          <img
+            src="https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Python Project"
+          />
+          <div class="project-content">
+            <h2>Python Project</h2>
+            <p>Build a web scraper using Beautiful Soup and requests.</p>
+          </div>
+        </div>
+        <div class="project-card" onclick="openModal('modal-javascript')">
+          <img
+            src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_1280.png"
+            alt="JavaScript Project"
+          />
+          <div class="project-content">
+            <h2>JavaScript Project</h2>
+            <p>Create a dynamic To-Do List application with local storage.</p>
+          </div>
+        </div>
+        <div class="project-card" onclick="openModal('modal-java')">
+          <img
+            src="https://www.freecodecamp.org/news/content/images/size/w2000/2023/09/javacrash.png"
+            alt="Java Project"
+          />
+          <div class="project-content">
+            <h2>Java Project</h2>
+            <p>Develop a basic banking application with user authentication.</p>
+          </div>
+        </div>
+        <div class="project-card" onclick="openModal('modal-csharp')">
+          <img
+            src="https://www.simplilearn.com/ice9/free_resources_article_thumb/Csharp_Programming_for_Beginners.jpg"
+            alt="C# Project"
+          />
+          <div class="project-content">
+            <h2>C# Project</h2>
+            <p>Build a simple CRUD application using ASP.NET Core.</p>
+          </div>
+        </div>
+        <div class="project-card" onclick="openModal('modal-ruby')">
+          <img
+            src="https://avikdas.com/assets/images/2019-02-19-creating-raspberry-pi-applications-with-raylib-and-ruby/logos-and-source-code.png"
+            alt="Ruby Project"
+          />
+          <div class="project-content">
+            <h2>Ruby Project</h2>
+            <p>Create a web application with Ruby on Rails for blogging.</p>
+          </div>
+        </div>
+        <div class="project-card" onclick="openModal('modal-go')">
+          <img
+            src="https://www.gocode.ca/static/site-content/page-uploads/bbrtnn7TZ3PfBJjLjPZtxFXTB.png"
+            alt="Go Project"
+          />
+          <div class="project-content">
+            <h2>Go Project</h2>
+            <p>Develop a RESTful API for managing a library system.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal for Python Project -->
+    <div id="modal-python" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-python')">&times;</span>
+        <h2>Python Web Scraper</h2>
+        <p>
+          In this project, you'll build a web scraper using the Beautiful Soup
+          and requests libraries to extract data from websites. You'll learn
+          about web scraping techniques, handling HTML and CSS, and storing the
+          data in a CSV file.
+        </p>
+      </div>
+    </div>
+
+    <!-- Modal for JavaScript Project -->
+    <div id="modal-javascript" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-javascript')"
+          >&times;</span
+        >
+        <h2>Dynamic To-Do List</h2>
+        <p>
+          This project involves creating a dynamic To-Do List application that
+          allows users to add, delete, and mark tasks as complete. You will use
+          HTML, CSS, and JavaScript, with local storage to save the tasks
+          between sessions.
+        </p>
+      </div>
+    </div>
+
+    <!-- Modal for Java Project -->
+    <div id="modal-java" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-java')">&times;</span>
+        <h2>Basic Banking Application</h2>
+        <p>
+          Develop a basic banking application that allows users to create
+          accounts, deposit and withdraw money, and view their balance. You'll
+          work with Java's object-oriented principles and learn about data
+          storage.
+        </p>
+      </div>
+    </div>
+
+    <!-- Modal for C# Project -->
+    <div id="modal-csharp" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-csharp')">&times;</span>
+        <h2>CRUD Application with ASP.NET Core</h2>
+        <p>
+          In this project, you'll build a simple CRUD (Create, Read, Update,
+          Delete) application using ASP.NET Core. This will involve setting up
+          the backend, creating models, and using Entity Framework for data
+          access.
+        </p>
+      </div>
+    </div>
+
+    <!-- Modal for Ruby Project -->
+    <div id="modal-ruby" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-ruby')">&times;</span>
+        <h2>Blog Application with Ruby on Rails</h2>
+        <p>
+          In this project, you'll create a web application using Ruby on Rails
+          for blogging. You will learn about MVC architecture, routing, and
+          working with databases.
+        </p>
+      </div>
+    </div>
+
+    <!-- Modal for Go Project -->
+    <div id="modal-go" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-go')">&times;</span>
+        <h2>RESTful API for Library System</h2>
+        <p>
+          In this project, you'll develop a RESTful API using Go for managing a
+          library system. You'll learn about structuring Go applications,
+          routing, and handling JSON data.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Idempotent. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Toggle the menu on mobile
+      function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("active");
+      }
+
+      // Close menu when clicking outside on mobile
+      window.onclick = function (event) {
+        const menu = document.querySelector(".menu");
+        const menuIcon = document.querySelector(".menu-icon");
+        if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+          menu.classList.remove("active");
+        }
+      };
+
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "block";
+      }
+
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "none";
+      }
+
+      // Close the modal when clicking outside of it
+      window.onclick = function (event) {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach((modal) => {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        });
+      };
+    </script>
+  </body>
+</html>

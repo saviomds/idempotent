@@ -1,0 +1,244 @@
+/* Global Styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.3s ease;
+}
+body {
+  background-image: linear-gradient(135deg, #333333 10%, #1a1a1a 100%);
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+::selection {
+  color: #ffffff;
+  background: #555555;
+}
+
+/* Header Styles */
+header {
+  background-color: #222;
+  padding: 20px 40px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1550px;
+  margin: 0 auto;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  margin: 0 15px;
+}
+
+.menu a {
+  color: #919191;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #ffffff; /* Change color on hover */
+}
+
+/* Main Styles */
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 300px; /* Two columns: content and aside */
+  gap: 20px; /* Space between columns */
+  padding: 20px;
+  margin: auto;
+  max-width: 1200px; /* Max width for main content */
+}
+
+.service-detail-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.service-title {
+  color: #ffffff;
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.service-description {
+  color: #e0e0e0;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.service-details {
+  color: #f0f0f0;
+  font-size: 16px;
+}
+
+.related-services {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.related-services h3 {
+  color: #ffffff; /* Title color */
+  margin-bottom: 15px;
+}
+
+.related-services ul {
+  list-style-type: none;
+}
+
+.related-services li {
+  margin-bottom: 10px;
+}
+
+.related-services a {
+  color: #f0f0f0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.related-services a:hover {
+  color: #ffffff; /* Change color on hover */
+}
+
+/* Footer */
+footer {
+  background-color: #1e1e1e;
+  padding: 20px 0;
+  text-align: center;
+  color: #b0b0b0;
+  font-size: 14px;
+}
+/* Main Container Styles */
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Service Detail Container */
+.service-detail-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+/* Case Studies Section */
+.case-studies {
+  margin-top: 20px;
+}
+
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.case-study {
+  background: #212121;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Client Testimonials Aside */
+.client-testimonials {
+  width: 250px;
+  background: #222;
+  color: #e0e0e0;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.client-testimonials ul {
+  list-style: none;
+  padding: 0;
+}
+
+.client-testimonials li {
+  margin-bottom: 10px;
+}
+/* Hide menu by default on small screens */
+.menu {
+  display: none;
+  flex-direction: column; /* Stack items vertically */
+}
+
+.menu.active {
+  display: flex; /* Show the menu when active */
+}
+
+/* Menu icon styles */
+.menu-icon {
+  display: none; /* Hide by default */
+  font-size: 24px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+/* Show menu icon on small screens */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Show menu icon */
+  }
+
+  .navbar .menu {
+    position: absolute;
+    top: 60px; /* Position the menu below the navbar */
+    right: 20px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
+  .menu li {
+    margin: 10px 0; /* Space between items */
+    text-align: center;
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .service-detail-container {
+    margin-right: 0;
+  }
+
+  .client-testimonials {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .main-container {
+    grid-template-columns: 1fr; /* Stack content and aside on small screens */
+  }
+
+  .related-services {
+    margin-top: 20px; /* Add margin for better spacing */
+  }
+}

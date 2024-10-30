@@ -1,0 +1,295 @@
+/* Global Styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #121212;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar Styles */
+header {
+  background-color: #222;
+  padding: 20px 40px;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1550px;
+  margin: 0 auto;
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+}
+
+.menu li {
+  margin: 0 15px;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #5566ff;
+}
+.menu li .active {
+  color: #5566ff;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+/* Main Styles */
+main {
+  padding: 20px;
+}
+
+.project-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.project-intro h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #dadada;
+}
+
+.project-intro p {
+  font-size: 18px;
+  color: #969393;
+}
+
+/* Projects Container */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: #2b2b2b;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures the image doesn't overflow the card */
+  transition: transform 0.3s, box-shadow 0.3s; /* Adding box shadow transition */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Shadow depth on hover */
+}
+
+.project-card img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+}
+
+.project-content {
+  padding: 20px;
+}
+
+.project-card h2 {
+  color: #cec7c7;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.project-card p {
+  color: #f0e8e8;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: #ffffff;
+}
+/* Navbar Styles */
+header {
+  background-color: #222;
+  padding: 20px 40px;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1550px;
+  margin: 0 auto;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+}
+
+.menu-icon {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+/* Responsive Menu Styles */
+@media (max-width: 768px) {
+  .menu {
+    display: none; /* Hide menu by default on mobile */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%; /* Position below the navbar */
+    left: 0;
+    margin-top: -30px;
+    background-color: #222;
+    border-top: 1px solid #5566ff;
+  }
+
+  .menu.active {
+    display: flex; /* Show menu when 'active' */
+  }
+
+  .menu li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .menu-icon {
+    display: block; /* Show hamburger icon */
+    margin-left: auto; /* Align to the right */
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #222;
+    border-top: 1px solid #5566ff;
+  }
+
+  .menu.active {
+    display: flex; /* Show menu when active */
+  }
+
+  .menu li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .menu-icon {
+    display: block; /* Show hamburger icon */
+    margin-left: auto; /* Align to the right */
+  }
+
+  .projects-container {
+    grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+  }
+}
+
+@media (max-width: 410px) {
+  .logo a {
+    font-size: 20px;
+  }
+
+  .menu a {
+    font-size: 16px;
+  }
+
+  .project-card h2 {
+    font-size: 18px;
+  }
+
+  .project-card p {
+    font-size: 14px;
+  }
+}

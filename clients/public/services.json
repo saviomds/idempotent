@@ -1,0 +1,607 @@
+[
+  {
+    "id": "1",
+    "title": "Web Development",
+    "description": "Custom web solutions tailored to your business needs.",
+    "details": {
+      "overview": "Our team specializes in responsive web design, ensuring your site looks great on all devices.",
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "React",
+        "Angular",
+        "Node.js",
+        "PHP"
+      ],
+      "keyFeatures": [
+        "Custom CMS Integration",
+        "E-commerce functionality",
+        "Ongoing maintenance and support"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "E-commerce Website",
+          "outcome": "Increased sales by 40% in 3 months."
+        },
+        {
+          "projectName": "Corporate Site Redesign",
+          "outcome": "Enhanced user engagement with a 50% increase in session duration."
+        }
+      ],
+      "clientTestimonials": [
+        "Their expertise in web development transformed our online presence.",
+        "Exceptional service and support throughout the project."
+      ]
+    }
+  },
+  {
+    "id": "2",
+    "title": "Mobile App Development",
+    "description": "Creating user-friendly mobile applications for both iOS and Android platforms.",
+    "details": {
+      "overview": "We develop apps with a focus on usability and performance, using the latest technologies to ensure smooth operation.",
+      "technologies": ["Swift", "Kotlin", "React Native", "Flutter"],
+      "keyFeatures": [
+        "Cross-platform compatibility",
+        "API integration",
+        "User testing and feedback incorporation"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Health Tracking App",
+          "outcome": "Achieved 10,000 downloads in the first month."
+        },
+        {
+          "projectName": "Restaurant Ordering App",
+          "outcome": "Reduced order processing time by 30%."
+        }
+      ],
+      "clientTestimonials": [
+        "The app exceeded our expectations and received great user reviews.",
+        "Professional and efficient development process."
+      ]
+    }
+  },
+  {
+    "id": "3",
+    "title": "UI/UX Design",
+    "description": "Designing intuitive and engaging user interfaces that enhance user experience.",
+    "details": {
+      "overview": "Our design process involves user research, wireframing, prototyping, and user testing.",
+      "keyFeatures": [
+        "Interactive prototypes",
+        "Usability testing",
+        "Accessibility compliance"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Mobile Banking App UI",
+          "outcome": "Improved user satisfaction scores by 30%."
+        },
+        {
+          "projectName": "E-commerce Site Redesign",
+          "outcome": "Increased conversion rates by 25%."
+        }
+      ],
+      "clientTestimonials": [
+        "The design was user-friendly and visually appealing.",
+        "Great attention to detail and creativity."
+      ]
+    }
+  },
+  {
+    "id": "4",
+    "title": "SEO Services",
+    "description": "Improving your website's visibility on search engines with our expert SEO strategies.",
+    "details": {
+      "overview": "We conduct thorough keyword research, on-page and off-page optimization, and technical SEO audits.",
+      "keyFeatures": [
+        "Competitor analysis",
+        "Content optimization",
+        "Monthly performance reporting"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Local Business SEO",
+          "outcome": "Ranked #1 for targeted keywords in 6 months."
+        },
+        {
+          "projectName": "Blog Traffic Increase",
+          "outcome": "Tripled organic traffic in a year."
+        }
+      ],
+      "clientTestimonials": [
+        "Our website's visibility improved drastically!",
+        "Highly knowledgeable team with effective strategies."
+      ]
+    }
+  },
+  {
+    "id": "5",
+    "title": "Content Creation",
+    "description": "High-quality content writing services that attract and engage your audience.",
+    "details": {
+      "overview": "Our skilled writers create compelling blog posts, articles, and marketing materials.",
+      "keyFeatures": [
+        "Content strategy development",
+        "Editing and proofreading",
+        "Social media content creation"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Monthly Blog Content",
+          "outcome": "Boosted reader engagement by 45%."
+        },
+        {
+          "projectName": "Website Copywriting",
+          "outcome": "Increased lead generation through effective call-to-actions."
+        }
+      ],
+      "clientTestimonials": [
+        "Their content brought our brand to life!",
+        "Consistent quality and creativity in every piece."
+      ]
+    }
+  },
+  {
+    "id": "6",
+    "title": "Cloud Solutions",
+    "description": "Offering scalable cloud solutions to enhance your business operations.",
+    "details": {
+      "overview": "We provide cloud consulting, migration, and management services.",
+      "keyFeatures": [
+        "Cloud infrastructure setup",
+        "Disaster recovery solutions",
+        "Managed cloud services"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Cloud Migration Project",
+          "outcome": "Reduced operational costs by 20%."
+        },
+        {
+          "projectName": "Disaster Recovery Setup",
+          "outcome": "Achieved 99.9% uptime."
+        }
+      ],
+      "clientTestimonials": [
+        "Their cloud solutions transformed our IT landscape.",
+        "Reliable and responsive support team."
+      ]
+    }
+  },
+  {
+    "id": "7",
+    "title": "E-commerce Development",
+    "description": "Building secure and efficient e-commerce platforms that drive sales.",
+    "details": {
+      "overview": "Our team specializes in creating user-friendly e-commerce websites that are fully optimized for conversions.",
+      "technologies": ["Shopify", "WooCommerce", "Magento"],
+      "keyFeatures": [
+        "Secure payment processing",
+        "Mobile-friendly design",
+        "Customer account management"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Online Store Launch",
+          "outcome": "Achieved $100,000 in sales in the first month."
+        },
+        {
+          "projectName": "E-commerce Optimization",
+          "outcome": "Increased conversion rates by 35%."
+        }
+      ],
+      "clientTestimonials": [
+        "The e-commerce site was a game changer for our business.",
+        "Exceptional support throughout the development process."
+      ]
+    }
+  },
+  {
+    "id": "8",
+    "title": "API Development",
+    "description": "Creating robust APIs for seamless integration between different software systems.",
+    "details": {
+      "overview": "We develop custom APIs that facilitate data exchange between applications.",
+      "keyFeatures": [
+        "RESTful and GraphQL API development",
+        "Documentation and support",
+        "Versioning and updates management"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Inventory Management API",
+          "outcome": "Streamlined data synchronization between systems."
+        },
+        {
+          "projectName": "Payment Gateway Integration",
+          "outcome": "Enhanced payment processing speed."
+        }
+      ],
+      "clientTestimonials": [
+        "Their API solutions are top-notch!",
+        "Seamless integration with our existing systems."
+      ]
+    }
+  },
+  {
+    "id": "9",
+    "title": "Social Media Marketing",
+    "description": "Boosting your online presence through targeted social media strategies.",
+    "details": {
+      "overview": "We create and manage social media campaigns that resonate with your target audience.",
+      "keyFeatures": [
+        "Paid advertising strategies",
+        "Audience analysis and targeting",
+        "Monthly performance reports"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Social Media Campaign for Launch",
+          "outcome": "Increased brand awareness by 60%."
+        },
+        {
+          "projectName": "Engagement Strategy Implementation",
+          "outcome": "Doubled engagement rates on key platforms."
+        }
+      ],
+      "clientTestimonials": [
+        "Our social media presence has never been stronger!",
+        "Innovative strategies that drive results."
+      ]
+    }
+  },
+  {
+    "id": "10",
+    "title": "IT Consulting",
+    "description": "Providing expert IT consulting services to help you optimize your technology investments.",
+    "details": {
+      "overview": "Our consultants assess your current IT infrastructure and provide recommendations.",
+      "keyFeatures": [
+        "Technology audits",
+        "Project management",
+        "Vendor management support"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "IT Infrastructure Assessment",
+          "outcome": "Identified cost-saving opportunities of 25%."
+        },
+        {
+          "projectName": "Software Selection Consulting",
+          "outcome": "Improved operational efficiency through optimized software solutions."
+        }
+      ],
+      "clientTestimonials": [
+        "Their insights helped us make informed decisions.",
+        "Highly professional and knowledgeable team."
+      ]
+    }
+  },
+  {
+    "id": "11",
+    "title": "Blockchain Development",
+    "description": "Implementing secure and efficient blockchain solutions for various applications.",
+    "details": {
+      "overview": "We develop blockchain applications that are transparent, secure, and scalable.",
+      "keyFeatures": [
+        "Custom blockchain architecture",
+        "Token development",
+        "Security audits"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Supply Chain Tracking Solution",
+          "outcome": "Enhanced transparency and traceability."
+        },
+        {
+          "projectName": "Cryptocurrency Wallet Development",
+          "outcome": "Ensured high security and user experience."
+        }
+      ],
+      "clientTestimonials": [
+        "Their blockchain expertise is unmatched.",
+        "Innovative solutions that meet our needs."
+      ]
+    }
+  },
+  {
+    "id": "12",
+    "title": "Cybersecurity Solutions",
+    "description": "Protecting your business from cyber threats with our comprehensive cybersecurity services.",
+    "details": {
+      "overview": "We provide security assessments, threat analysis, and implementation of security measures.",
+      "keyFeatures": [
+        "Vulnerability assessments",
+        "Incident response planning",
+        "Security training for employees"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Security Audit for Healthcare Provider",
+          "outcome": "Identified critical vulnerabilities and mitigated risks."
+        },
+        {
+          "projectName": "Incident Response Plan Development",
+          "outcome": "Reduced response time to incidents by 50%."
+        }
+      ],
+      "clientTestimonials": [
+        "Their security solutions give us peace of mind.",
+        "Thorough and professional service."
+      ]
+    }
+  },
+  {
+    "id": "13",
+    "title": "Data Analytics",
+    "description": "Transforming your data into actionable insights to drive better business decisions.",
+    "details": {
+      "overview": "Our data analytics services help you make informed decisions by analyzing data trends.",
+      "keyFeatures": [
+        "Predictive analytics",
+        "Dashboard creation",
+        "Data warehousing solutions"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Sales Data Analysis",
+          "outcome": "Identified key trends leading to a 20% increase in sales."
+        },
+        {
+          "projectName": "Customer Behavior Analytics",
+          "outcome": "Enhanced marketing strategies with targeted campaigns."
+        }
+      ],
+      "clientTestimonials": [
+        "Their analytics helped us understand our customers better.",
+        "Transformative insights that drove our strategy."
+      ]
+    }
+  },
+  {
+    "id": "14",
+    "title": "DevOps Services",
+    "description": "Streamlining your development and operations for faster and more efficient deployments.",
+    "details": {
+      "overview": "We implement DevOps best practices to improve collaboration and automate processes.",
+      "keyFeatures": [
+        "Continuous integration and delivery (CI/CD)",
+        "Infrastructure as code (IaC)",
+        "Monitoring and logging solutions"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "DevOps Implementation for SaaS",
+          "outcome": "Reduced deployment time by 75%."
+        },
+        {
+          "projectName": "Monitoring System Setup",
+          "outcome": "Enhanced system uptime to 99.9%."
+        }
+      ],
+      "clientTestimonials": [
+        "Their DevOps approach streamlined our workflows.",
+        "Significant improvements in deployment efficiency."
+      ]
+    }
+  },
+  {
+    "id": "15",
+    "title": "Virtual Reality Solutions",
+    "description": "Creating immersive virtual reality experiences for training and marketing.",
+    "details": {
+      "overview": "We design and develop VR applications that engage users through interactive environments.",
+      "keyFeatures": [
+        "3D modeling and animation",
+        "Multi-platform compatibility",
+        "User experience testing"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "VR Training Simulation",
+          "outcome": "Improved training retention rates by 40%."
+        },
+        {
+          "projectName": "Marketing VR Experience",
+          "outcome": "Increased customer engagement during product launches."
+        }
+      ],
+      "clientTestimonials": [
+        "Incredible VR experience that captivated our audience.",
+        "Professional team with a clear vision."
+      ]
+    }
+  },
+  {
+    "id": "16",
+    "title": "Machine Learning Solutions",
+    "description": "Developing AI-driven solutions to optimize your business processes.",
+    "details": {
+      "overview": "We leverage machine learning to analyze data and improve decision-making.",
+      "keyFeatures": [
+        "Predictive modeling",
+        "Natural language processing",
+        "Data classification and clustering"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Customer Churn Prediction Model",
+          "outcome": "Reduced churn rate by 30%."
+        },
+        {
+          "projectName": "Sales Forecasting System",
+          "outcome": "Improved forecast accuracy by 25%."
+        }
+      ],
+      "clientTestimonials": [
+        "Their ML solutions are game-changers for our business.",
+        "Insightful analytics that drive results."
+      ]
+    }
+  },
+  {
+    "id": "17",
+    "title": "IoT Development",
+    "description": "Building connected devices for a smarter, more efficient world.",
+    "details": {
+      "overview": "Our IoT solutions enable seamless communication between devices for enhanced functionality.",
+      "keyFeatures": [
+        "Smart home applications",
+        "Wearable technology",
+        "Industrial IoT solutions"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Smart Home System Development",
+          "outcome": "Improved energy efficiency by 20%."
+        },
+        {
+          "projectName": "Industrial IoT Monitoring",
+          "outcome": "Enhanced operational efficiency in manufacturing."
+        }
+      ],
+      "clientTestimonials": [
+        "Innovative IoT solutions that transform how we operate.",
+        "Expertise in connecting devices is impressive."
+      ]
+    }
+  },
+  {
+    "id": "18",
+    "title": "Augmented Reality Solutions",
+    "description": "Creating AR applications to enhance user experiences and interactions.",
+    "details": {
+      "overview": "We develop augmented reality solutions for gaming, training, and marketing.",
+      "keyFeatures": [
+        "Interactive AR content",
+        "Cross-device compatibility",
+        "User engagement analytics"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "AR Marketing Campaign",
+          "outcome": "Drove 50% higher engagement rates."
+        },
+        {
+          "projectName": "Training AR Application",
+          "outcome": "Increased knowledge retention among trainees."
+        }
+      ],
+      "clientTestimonials": [
+        "Their AR applications added a new dimension to our campaigns.",
+        "Creative solutions that engage our audience."
+      ]
+    }
+  },
+  {
+    "id": "19",
+    "title": "Digital Marketing",
+    "description": "Comprehensive digital marketing strategies to grow your online presence.",
+    "details": {
+      "overview": "We offer a full suite of digital marketing services tailored to your business goals.",
+      "keyFeatures": [
+        "Email marketing campaigns",
+        "Pay-per-click advertising",
+        "Content marketing strategy"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "PPC Campaign for New Product",
+          "outcome": "Achieved a 300% ROI."
+        },
+        {
+          "projectName": "Email Marketing Strategy",
+          "outcome": "Increased open rates by 40%."
+        }
+      ],
+      "clientTestimonials": [
+        "Their marketing strategies helped us reach new customers.",
+        "Creative and data-driven approach."
+      ]
+    }
+  },
+  {
+    "id": "20",
+    "title": "Consulting Services",
+    "description": "Expert advice to help businesses grow and succeed.",
+    "details": {
+      "overview": "Our consultants provide insights and strategies tailored to your specific challenges.",
+      "keyFeatures": [
+        "Business process improvement",
+        "Market analysis and strategy development",
+        "Risk management"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "Business Process Optimization",
+          "outcome": "Increased efficiency by 30%."
+        },
+        {
+          "projectName": "Market Entry Strategy",
+          "outcome": "Successful launch in new markets."
+        }
+      ],
+      "clientTestimonials": [
+        "Their consulting services were invaluable for our growth.",
+        "Professional, insightful, and results-driven."
+      ]
+    }
+  },
+  {
+    "id": "21",
+    "title": "Telecommunications Solutions",
+    "description": "Innovative telecom solutions for seamless communication.",
+    "details": {
+      "overview": "We provide comprehensive telecommunications services, including setup and support.",
+      "keyFeatures": [
+        "VoIP solutions",
+        "Network infrastructure setup",
+        "Ongoing support and maintenance"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "VoIP Implementation for Office",
+          "outcome": "Reduced communication costs by 50%."
+        },
+        {
+          "projectName": "Network Optimization",
+          "outcome": "Improved network speed and reliability."
+        }
+      ],
+      "clientTestimonials": [
+        "Reliable telecom solutions that improved our communication.",
+        "Excellent support and expertise in the field."
+      ]
+    }
+  },
+  {
+    "id": "22",
+    "title": "HR Tech Solutions",
+    "description": "Streamlining HR processes through technology.",
+    "details": {
+      "overview": "We develop solutions that enhance HR efficiency and employee engagement.",
+      "keyFeatures": [
+        "Employee management systems",
+        "Performance tracking tools",
+        "Recruitment automation"
+      ],
+      "caseStudies": [
+        {
+          "projectName": "HR System Implementation",
+          "outcome": "Reduced onboarding time by 30%."
+        },
+        {
+          "projectName": "Employee Engagement Platform",
+          "outcome": "Increased employee satisfaction scores."
+        }
+      ],
+      "clientTestimonials": [
+        "Their HR solutions transformed our processes.",
+        "Highly effective and user-friendly systems."
+      ]
+    }
+  }
+]

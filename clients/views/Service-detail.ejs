@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Detail</title>
+    <link rel="stylesheet" href="/css/service.css" />
+    <link rel="stylesheet" href="/css/details.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo"><a href="/">Idempotent</a></div>
+
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+
+        <ul class="menu">
+          <li onclick="navigateTo('/Home')">Home</li>
+          <li onclick="navigateTo('/services')">Services</li>
+          <li onclick="navigateTo('/Projects')">Projects</li>
+          <li onclick="navigateTo('/Blog')">Blog</li>
+          <li onclick="navigateTo('/Contact')">Contact</li>
+        </ul>
+      </nav>
+    </header>
+    <br /><br /><br />
+    <main class="main-container">
+      <div class="service-detail-container">
+        <h2 id="service-title" class="service-title"></h2>
+        <p id="service-description" class="service-description"></p>
+        <div id="service-details" class="service-details"></div>
+
+        <section id="case-studies" class="case-studies">
+          <h3>Case Studies</h3>
+          <div class="case-studies-grid"></div>
+        </section>
+      </div>
+
+      <aside class="client-testimonials">
+        <h3>Client Testimonials</h3>
+        <ul></ul>
+      </aside>
+    </main>
+
+    <script>
+      async function loadServiceDetail() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceId = urlParams.get("id"); // Assuming your URL has ?id=1
+        console.log("Requested Service ID:", serviceId);
+
+        try {
+          const response = await fetch("services.json");
+          console.log("Response Status:", response.status);
+          if (!response.ok) throw new Error("Network response was not ok");
+
+          const services = await response.json();
+          console.log("Fetched Services:", services);
+
+          const service = services.find((s) => s.id === String(serviceId));
+          console.log("Found Service:", service);
+
+          if (service) {
+            document.getElementById("service-title").innerText = service.title;
+            document.getElementById("service-description").innerText =
+              service.description;
+
+            document.getElementById("service-details").innerHTML = `
+                <strong>Overview:</strong> ${service.details.overview}<br>
+                <strong>Technologies:</strong> ${service.details.technologies.join(
+                  ", "
+                )}<br>
+                <strong>Key Features:</strong>
+                <ul>
+                    ${service.details.keyFeatures
+                      .map((feature) => `<li>${feature}</li>`)
+                      .join("")}
+                </ul>
+            `;
+
+            const caseStudiesList = service.details.caseStudies
+              .map(
+                (caseStudy) => `
+                <div class="case-study">
+                    <strong>${caseStudy.projectName}</strong>: ${caseStudy.outcome}
+                </div>
+            `
+              )
+              .join("");
+            document.querySelector(".case-studies-grid").innerHTML =
+              caseStudiesList;
+
+            const testimonialsList = service.details.clientTestimonials
+              .map(
+                (testimonial) => `
+                <li>"${testimonial}"</li>
+            `
+              )
+              .join("");
+            document.querySelector(".client-testimonials ul").innerHTML =
+              testimonialsList;
+          } else {
+            document.querySelector(".service-detail-container").innerText =
+              "Service not found.";
+          }
+        } catch (error) {
+          console.error("Failed to load service:", error);
+          document.querySelector(".service-detail-container").innerText =
+            "Error loading service.";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", loadServiceDetail);
+
+      // Toggle the visibility of the menu
+      function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("active");
+      }
+
+      // Navigate to different pages
+      function navigateTo(path) {
+        window.location.href = path;
+      }
+    </script>
+  </body>
+</html>

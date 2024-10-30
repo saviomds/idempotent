@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <div class="logo"><a href="/"><%= header%> </a></div>
+
+        <ul class="menu">
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/Services">Services</a></li>
+          <li><a href="/Projects">Projects</a></li>
+          <li><a href="/Blog">Blog</a></li>
+          <li><a href="/Contact">Contact</a></li>
+        </ul>
+        <div class="buttons">
+          <a href="/Login"> <input type="button" value="Login" /></a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1>Innovate, Code, and Elevate</h1>
+        <p>
+          We empower developers to build future-ready software solutions with
+          cutting-edge tools and insights.
+        </p>
+        <a href="/Community" class="cta-button">Join the Community</a>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+      <div class="section-header">
+        <h2>Our Expertise</h2>
+        <p>
+          Discover the professional services we offer to help you excel in your
+          development journey.
+        </p>
+      </div>
+      <div class="service-cards">
+        <div class="service-card">
+          <i class="fas fa-laptop-code fa-2x"></i>
+          <h3>Custom Development</h3>
+          <p>Bespoke software solutions tailored to meet your unique needs.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-chalkboard-teacher fa-2x"></i>
+          <h3>Workshops & Training</h3>
+          <p>Hands-on workshops designed to enhance your skills.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-project-diagram fa-2x"></i>
+          <h3>Project Consulting</h3>
+          <p>Expert guidance to ensure the success of your projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          <p>
+            "The insights and support have transformed our approach to
+            development!"
+          </p>
+          <span>- Client A</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"Idempotent Dev has been a game-changer for our projects."</p>
+          <span>- Client B</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Idempotent . All rights reserved.</p>
+    </footer>
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

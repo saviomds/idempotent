@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join the Developer Community</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/community.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="/">Idempotent </a>
+        </div>
+
+        <ul class="menu">
+          <li><a href="/Home">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/Projects">Projects</a></li>
+          <li><a href="/Blog">Blog</a></li>
+          <li><a href="/Contact">Contact</a></li>
+          <li><a href="/Community" class="active">Community</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="community-intro">
+        <h1>Welcome to the Developer Community</h1>
+        <p>
+          Join other developers, collaborate on projects, and access exclusive
+          resources.
+        </p>
+      </section>
+
+      <!-- Developer Profiles Section -->
+      <section class="developer-profiles" id="developer-profiles">
+        <h2>Meet Our Developers</h2>
+        <div class="profiles-container" id="profiles-container"></div>
+      </section>
+
+      <!-- Discussion Threads Section -->
+      <section class="discussion-threads">
+        <h2>Community Discussions</h2>
+        <div id="discussion-container">
+          <!-- Threads will be loaded here -->
+        </div>
+        <div class="create-thread">
+          <h3>Start a New Thread</h3>
+          <textarea
+            id="new-thread"
+            placeholder="Share your thoughts or ask a question"
+          ></textarea>
+          <button onclick="postThread()">Post Thread</button>
+        </div>
+      </section>
+
+      <!-- Resources Section -->
+      <section class="resources">
+        <h2>Developer Resources</h2>
+        <div class="resource-list" id="resource-list">
+          <!-- Resource items will be loaded here -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Idempotent. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/community.js"></script>
+  </body>
+</html>

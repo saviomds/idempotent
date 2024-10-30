@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <title>Our Services</title>
+
+    <link rel="stylesheet" href="/css/service.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo"><a href="/">Idempotent</a></div>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="menu">
+          <li><a href="/Home">Home</a></li>
+          <li><a href="/services" class="active">Services</a></li>
+          <li><a href="/Projects">Projects</a></li>
+          <li><a href="/Blog">Blog</a></li>
+          <li><a href="/Contact">Contact</a></li>
+        </ul>
+        <div class="buttons">
+          <a href="/Login"> <input type="button" value="Login" /></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="about">
+        <h2>About Our Services</h2>
+        <p>
+          At Idempotent Dev, we offer a variety of services tailored to meet the
+          needs of our clients. Our team of experienced professionals is
+          dedicated to providing high-quality solutions and exceptional customer
+          service.
+        </p>
+      </div>
+
+      <div class="services-container" id="services-container"></div>
+    </main>
+    <footer>
+      <p>&copy; 2024 Idempotent. All rights reserved.</p>
+    </footer>
+
+    <script>
+      async function loadServices() {
+        try {
+          // Update the path to point to the correct location of your services.json file
+          const response = await fetch("services.json");
+          const services = await response.json();
+          const servicesContainer =
+            document.getElementById("services-container");
+
+          // Loop through each service and create a card
+          services.forEach((service) => {
+            const serviceCard = document.createElement("div");
+            serviceCard.classList.add("service-card");
+
+            // Add the title, description, and a link to the detail page with the service ID in the URL
+            serviceCard.innerHTML = `
+              <h2>${service.title}</h2>
+              <p>${service.description}</p>
+              <a href="/service-detail?id=${service.id}" class="view-details">View Details</a>
+            `;
+
+            servicesContainer.appendChild(serviceCard);
+          });
+        } catch (error) {
+          console.error("Failed to load services:", error);
+          servicesContainer.innerHTML = "<p>Error loading services.</p>";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", loadServices);
+    </script>
+  </body>
+</html>
