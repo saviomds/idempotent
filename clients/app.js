@@ -1,10 +1,9 @@
 import express from "express";
-import dotenv from "dotenv";
 import ejs from "ejs";
 import getRoutes from "./routes/getRoutes.js";
 import serviceRoutes from "./routes/serviceRoutes.js"; // Importing the service routes
 
-dotenv.config();
+
 
 const app = express();
 
