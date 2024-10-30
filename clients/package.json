@@ -16,6 +16,10 @@
     "nodemon": "^3.1.7"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "ejs": "^3.1.10"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }

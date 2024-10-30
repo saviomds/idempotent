@@ -2,10 +2,10 @@ import express from "express";
 import ejs from "ejs";
 import getRoutes from "./routes/getRoutes.js";
 import serviceRoutes from "./routes/serviceRoutes.js"; // Importing the service routes
-
-
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
