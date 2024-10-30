@@ -1,23 +1,27 @@
 import express from "express";
 import ejs from "ejs";
 import getRoutes from "./routes/getRoutes.js";
-import serviceRoutes from "./routes/serviceRoutes.js"; // Importing the service routes
+import serviceRoutes from "./routes/serviceRoutes.js";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 app.use(cors());
 
+// Set view engine
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-app.set("view engine", "ejs");
+// Serve static files
 app.use(express.static("public"));
 
-// Use auth routes
+// Use routes
 app.use("/", getRoutes);
 app.use("/", serviceRoutes);
 
-// Optional: If you want to render the login and register pages
+// Optional: Render pages
 app.get("/", (req, res) => {
   res.render("Home", {
     title: "Welcome | Idempotent ",
@@ -44,7 +48,7 @@ app.get("/Login", (req, res) => {
 app.get("/Projects", (req, res) => {
   res.render("Projects", {
     title: "Projects",
-    header: "Projeccts ~ Idempotent",
+    header: "Projects ~ Idempotent",
   });
 });
 app.get("/Blog", (req, res) => {
@@ -71,8 +75,16 @@ app.get("/Community", (req, res) => {
     header: "Join the Developer Community ~ Idempotent",
   });
 });
-const port = process.env.PORT || 3000;
 
+// 404 Error Handling
+app.use((req, res) => {
+  res.status(404).render("404", {
+    title: "404 Not Found",
+    header: "Page Not Found",
+  });
+});
+
+const port = process.env.PORT || 5000;
 app.listen(port, () =>
   console.log(`Server Started On Port http://localhost:${port}`)
 );
