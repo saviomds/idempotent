@@ -229,6 +229,11 @@ footer {
     top: 100%;
     left: 0;
     background-color: #222;
+    text-align: center;
+    padding: 20px;
+  }
+  .menu li {
+    padding: 10px;
   }
 
   .menu.active {
