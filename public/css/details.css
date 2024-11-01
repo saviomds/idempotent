@@ -197,6 +197,8 @@ footer {
 @media (max-width: 768px) {
   .menu-icon {
     display: block; /* Show menu icon */
+    position: relative;
+    top: -35px;
   }
 
   .navbar .menu {
@@ -214,10 +216,6 @@ footer {
     margin: 10px 0; /* Space between items */
     text-align: center;
   }
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
   .main-container {
     flex-direction: column;
   }
@@ -230,10 +228,6 @@ footer {
     width: 100%;
     margin-top: 20px;
   }
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
   .main-container {
     grid-template-columns: 1fr; /* Stack content and aside on small screens */
   }

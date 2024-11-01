@@ -62,7 +62,9 @@ header {
   background: linear-gradient(to right, #351119, #10143c);
   color: #fff;
 }
-
+.menu-icon {
+  display: none;
+}
 .contact-container {
   display: flex;
   justify-content: space-between;
@@ -70,10 +72,12 @@ header {
   margin: 40px auto;
   padding: 20px;
   gap: 40px;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .contact-info {
   flex: 1;
+  min-width: 300px; /* Minimum width for better responsiveness */
 }
 
 .contact-info ul {
@@ -94,6 +98,7 @@ header {
 
 .contact-form {
   flex: 1;
+  min-width: 300px; /* Minimum width for better responsiveness */
 }
 
 .contact-form label {
@@ -145,4 +150,61 @@ footer {
   padding: 20px;
   background-color: #222;
   color: #ffffff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack logo and menu on smaller screens */
+  }
+
+  .menu {
+    flex-direction: column; /* Stack menu 
+    items */
+    display: none; /* Hide menu by default */
+  }
+  .menu-icon {
+    margin-left: 330px;
+    color: #d6d3d3;
+    position: relative;
+    top: -35px;
+    font-size: 25px;
+    right: -20px;
+    display: block;
+  }
+  .menu.active {
+    display: flex; /* Show menu when active */
+  }
+
+  .contact-container {
+    flex-direction: column; /* Stack contact info and form */
+  }
+
+  .contact-info,
+  .contact-form {
+    flex: none;
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .contact-info ul {
+    padding: 0; /* Reset padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-header {
+    padding: 30px 10px; /* Adjust padding */
+  }
+
+  .contact-header h1 {
+    font-size: 24px; /* Smaller heading on mobile */
+  }
+
+  .contact-header p {
+    font-size: 16px; /* Smaller text on mobile */
+  }
+
+  .contact-form button {
+    width: 100%; /* Full width button */
+  }
 }

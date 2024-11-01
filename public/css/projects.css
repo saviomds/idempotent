@@ -269,6 +269,8 @@ header {
   .menu-icon {
     display: block; /* Show hamburger icon */
     margin-left: auto; /* Align to the right */
+    position: relative;
+    top: -35px;
   }
 
   .projects-container {

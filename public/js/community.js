@@ -11,14 +11,25 @@ async function loadProfiles() {
       id: 1,
       name: "D. Savio M ",
       skills: ["JavaScript", "React"],
-      image: "images/savio.jpg",
+      image:
+        "https://media.licdn.com/dms/image/v2/D4D03AQHJALbx_c7lHg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1719899782933?e=1735776000&v=beta&t=0ZKSUOFXhi09lhYdEANHqK9nuE6gBfScYIqkRqOEvE0" ||
+        "images/savio.jpg",
     },
     {
       id: 2,
-      name: "Bob Smith",
+      name: "I. Eddy",
+      skills: ["C", "C++"],
+      image:
+        "https://media.licdn.com/dms/image/v2/D4D03AQHhYDX5ITjDVA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1707209615107?e=1735776000&v=beta&t=Ljn5Dvqe_nYe802daDk5wZIKDxRa_KFS4GZ7hDTqbOA" ||
+        "images/eddy.jpeg",
+    },
+    {
+      id: 2,
+      name: "N. Gad",
       skills: ["Python", "Django"],
       image:
-        "https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "images/gad.webp" ||
+        "https://media.licdn.com/dms/image/v2/D4D35AQEmsuwTq_zEfA/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1719445095864?e=1731060000&v=beta&t=jSyjH_UoLxkqnDEgy0IVOQ1dnnSBMflB7LOts9N4jmA",
     },
   ];
   const profilesContainer = document.getElementById("profiles-container");
@@ -38,7 +49,8 @@ async function loadProfiles() {
 async function loadDiscussions() {
   const discussions = [
     { id: 1, user: "Savio", text: "Anyone working on React projects?" },
-    { id: 2, user: "Bob", text: "Looking for Django experts!" },
+    { id: 2, user: "Gad", text: "Looking for Django experts!" },
+    { id: 3, user: "Eddy", text: "Learn C++ programming!" },
   ];
   const discussionContainer = document.getElementById("discussion-container");
 

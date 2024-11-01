@@ -47,6 +47,9 @@ header {
   font-size: 20px;
   transition: color 0.3s ease;
 }
+.navbar .buttons a.profile input {
+  background-image: linear-gradient(135deg, #878686 10%, #000000 100%);
+}
 .navbar .buttons input {
   outline: none;
   color: #e0e0e0;
@@ -218,6 +221,12 @@ footer {
   }
 
   .menu-icon {
+    display: block;
+  }
+  .buttons a {
+    display: none;
+  }
+  .btn {
     display: block;
   }
 }

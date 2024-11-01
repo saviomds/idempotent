@@ -7,6 +7,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <title>Our Services</title>
 
     <link rel="stylesheet" href="/css/service.css" />
@@ -14,7 +18,9 @@
   <body>
     <header>
       <nav class="navbar">
-        <div class="logo"><a href="/">Idempotent</a></div>
+        <div class="logo">
+          <a href="/">Idempotent <i class="fa-solid fa-arrow-turn-down"></i></a>
+        </div>
         <div class="menu-icon" onclick="toggleMenu()">
           <i class="fas fa-bars"></i>
         </div>
@@ -23,10 +29,19 @@
           <li><a href="/services" class="active">Services</a></li>
           <li><a href="/Projects">Projects</a></li>
           <li><a href="/Blog">Blog</a></li>
+          <li><a href="/Community">Community</a></li>
           <li><a href="/Contact">Contact</a></li>
+          <li><a href="/Register">Hello Guest</a></li>
+
+
+          <li>
+            <a href="/Login" class="buttons btn">
+              <input type="button" value="Login"
+            /></a>
+          </li>
         </ul>
-        <div class="buttons">
-          <a href="/Login"> <input type="button" value="Login" /></a>
+        <div class="buttons" hidden>
+          <a href="/Login"> <input type="button " value="Login" /></a>
         </div>
       </nav>
     </header>
@@ -78,6 +93,10 @@
       }
 
       document.addEventListener("DOMContentLoaded", loadServices);
+      function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("active");
+      }
     </script>
   </body>
 </html>

@@ -260,7 +260,9 @@ footer {
 
   .menu-icon {
     display: block; /* Show hamburger icon */
-    margin-left: auto; /* Align to the right */
+    margin-left: auto;
+    /* Align to the right */
+    margin-right: -20px;
   }
 
   .services-container {
@@ -270,6 +272,12 @@ footer {
 
   .service-card {
     width: 90%; /* Make cards wider on smaller screens */
+  }
+  .buttons {
+    display: none;
+  }
+  .btn {
+    display: block;
   }
 }
 

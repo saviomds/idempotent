@@ -6,11 +6,17 @@
     <title>Service Detail</title>
     <link rel="stylesheet" href="/css/service.css" />
     <link rel="stylesheet" href="/css/details.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
   </head>
   <body>
     <header>
       <nav class="navbar">
-        <div class="logo"><a href="/">Idempotent</a></div>
+        <div class="logo">
+          <a href="/">Idempotent <i class="fa-solid fa-arrow-turn-down"></i></a>
+        </div>
 
         <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
 
@@ -20,6 +26,10 @@
           <li onclick="navigateTo('/Projects')">Projects</li>
           <li onclick="navigateTo('/Blog')">Blog</li>
           <li onclick="navigateTo('/Contact')">Contact</li>
+          <li><a href="/Community">Community</a></li>
+          <li><a href="/Register">Hello Guest</a></li>
+
+
         </ul>
       </nav>
     </header>

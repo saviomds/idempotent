@@ -9,12 +9,20 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Navbar -->
     <header>
       <nav class="navbar">
-        <div class="logo"><a href="/"><%= header%> </a></div>
+        <div class="logo">
+          <a href="/"
+            ><%= header%> <i class="fa-solid fa-arrow-turn-down"></i
+          ></a>
+        </div>
 
         <ul class="menu">
           <li><a href="/" class="active">Home</a></li>
@@ -22,9 +30,20 @@
           <li><a href="/Projects">Projects</a></li>
           <li><a href="/Blog">Blog</a></li>
           <li><a href="/Contact">Contact</a></li>
+          <li><a href="/Community">Community</a></li>
+
+          <li>
+            <a href="/Login" class="buttons btn" hidden>
+              <input type="button" value="Login" />
+              <input type="button" value="Hello Guest" />
+            </a>
+          </li>
         </ul>
         <div class="buttons">
           <a href="/Login"> <input type="button" value="Login" /></a>
+          <a href="/Register" class="profile"
+            ><input type="button" value="Hello Guest"
+          /></a>
         </div>
         <div class="menu-icon" onclick="toggleMenu()">
           <i class="fas fa-bars"></i>
@@ -81,11 +100,11 @@
             "The insights and support have transformed our approach to
             development!"
           </p>
-          <span>- Client A</span>
+          <span>- Arsene</span>
         </div>
         <div class="testimonial-card">
-          <p>"Idempotent Dev has been a game-changer for our projects."</p>
-          <span>- Client B</span>
+          <p>"Idempotent has been a game-changer for our projects."</p>
+          <span>- Prince</span>
         </div>
       </div>
     </section>

@@ -38,12 +38,18 @@ app.get("/Home", (req, res) => {
 app.get("/Register", (req, res) => {
   res.render("Register", {
     title: "Register",
-    header: "register ~ Idempotent",
+    header: "Register ~ Idempotent",
   });
 });
 
 app.get("/Login", (req, res) => {
-  res.render("Login", { title: "Login", header: "register ~ Idempotent" });
+  res.render("Login", { title: "Login", header: "Login ~ Idempotent" });
+});
+app.get("/Forget-password", (req, res) => {
+  res.render("Forget-password", {
+    title: "Forget-password",
+    header: "Verify your e-mail ",
+  });
 });
 app.get("/Projects", (req, res) => {
   res.render("Projects", {
