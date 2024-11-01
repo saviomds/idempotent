@@ -6,6 +6,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import dotenv from "dotenv";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 
 dotenv.config(); // Load environment variables
 
@@ -27,7 +28,11 @@ app.use(
   session({
     secret: process.env.SECRET, // replace with an actual secret key in production
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI, // MongoDB URL
+      collectionName: "sessions", // Name of the collection for sessions
+    }),
     cookie: { maxAge: 1000 * 60 * 60 }, // 1-hour session
   })
 );
