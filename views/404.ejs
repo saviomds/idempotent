@@ -3,9 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <title><%= title %></title>
+    <style>
+      /* Ensure the body and html take up the full screen */
+      html,
+      body {
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      /* Full-height section to take remaining viewport height */
+      .full-height-section {
+        flex: 1;
+        position: relative;
+        top: 300px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .head {
+        font-size: 60px;
+      }
+      footer {
+        background-color: #333;
+      }
+      @media screen and (max-width: 786px) {
+        .full-height-section {
+          flex: 1;
+          position: relative;
+          top: 100px;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+    </style>
   </head>
   <body>
-    <%= header %>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="/">
+            <%= header %> <i class="fa-solid fa-arrow-turn-down"></i>
+          </a>
+        </div>
+
+        <ul class="menu">
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/Services">Services</a></li>
+          <li><a href="/Projects">Projects</a></li>
+          <li><a href="/Blog">Blog</a></li>
+          <li><a href="/Contact">Contact</a></li>
+          <li><a href="/Community">Community</a></li>
+
+          <li>
+            <% if (session.userId) { %>
+            <!-- Display "Hello, [name]" for logged-in users -->
+            <a href="/Profile" class="buttons btn">
+              <input type="button" value="Hello, <%= session.userName %>" />
+            </a>
+            <% } else { %>
+            <!-- Display Login and Hello Guest for guests -->
+            <a href="/Register" class="buttons btn">
+              <input type="button" value="Login" />
+              <input type="button" value="Hello Guest" />
+            </a>
+            <% } %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Full-height content section -->
+    <section class="full-height-section">
+      <h1>404</h1>
+      <h1 class="head"><%= header %></h1>
+      <h1>Welcome to Idempotent</h1>
+      <br />
+      <br />
+      <div>
+        <p>
+          Your one-stop solution for software development expertise and
+          community.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Idempotent. All rights reserved.</p>
+    </footer>
   </body>
 </html>
