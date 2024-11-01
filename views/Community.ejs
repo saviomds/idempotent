@@ -30,8 +30,10 @@
           <li><a href="/Blog">Blog</a></li>
           <li><a href="/Contact">Contact</a></li>
           <li><a href="/Community" class="active">Community</a></li>
-          <li><a href="/Register">Hello Guest</a></li>
+          <% if (session.userId) { %>
 
+          <li><a href="/Profile">Hello <%= session.userName %>! </a></li>
+          <% } %>
         </ul>
       </nav>
     </header>

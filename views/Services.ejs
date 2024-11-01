@@ -31,14 +31,17 @@
           <li><a href="/Blog">Blog</a></li>
           <li><a href="/Community">Community</a></li>
           <li><a href="/Contact">Contact</a></li>
-          <li><a href="/Register">Hello Guest</a></li>
+          <% if (session.userId) { %>
 
+          <li><a href="/Profile">Hello <%= session.userName %>! </a></li>
+          <% }else{ %>
 
           <li>
-            <a href="/Login" class="buttons btn">
+            <a href="/Login" class="buttons btn hidden">
               <input type="button" value="Login"
             /></a>
           </li>
+          <% }%>
         </ul>
         <div class="buttons" hidden>
           <a href="/Login"> <input type="button " value="Login" /></a>

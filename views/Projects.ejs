@@ -37,8 +37,12 @@
           <li><a href="/Blog">Blog</a></li>
           <li><a href="/Contact">Contact</a></li>
           <li><a href="/Community">Community</a></li>
+          <% if (session.userId) { %>
+
+          <li><a href="/Profile">Hello <%= session.userName %>! </a></li>
+          <% }else {%>
           <li><a href="/Login">Login</a></li>
-          <li><a href="/Register">Hello Guest</a></li>
+          <% } %>
         </ul>
       </nav>
     </header>

@@ -13,11 +13,12 @@
   <body>
     <div class="form-container">
       <h2>
-        <a href="/">
-          <%= header %> <i class="fa-solid fa-arrow-turn-down"></i
-        ></a>
+        <a href="/"> <%= header %> <i class="fa fa-arrow-down"></i> </a>
       </h2>
-      <form action="/register" method="POST">
+      <form action="/Register" method="POST">
+        <% if (errorMessage) { %>
+        <p class="error-message"><%= errorMessage %></p>
+        <% } %>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required />
 

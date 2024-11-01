@@ -33,18 +33,21 @@
           <li><a href="/Community">Community</a></li>
 
           <li>
-            <a href="/Login" class="buttons btn" hidden>
+            <% if (session.userId) { %>
+            <!-- Display "Hello, [name]" for logged-in users -->
+            <a href="/Profile" class="buttons btn">
+              <input type="button" value="Hello, <%= session.userName %>" />
+            </a>
+            <% } else { %>
+            <!-- Display Login and Hello Guest for guests -->
+            <a href="/Login" class="buttons btn">
               <input type="button" value="Login" />
               <input type="button" value="Hello Guest" />
             </a>
+            <% } %>
           </li>
         </ul>
-        <div class="buttons">
-          <a href="/Login"> <input type="button" value="Login" /></a>
-          <a href="/Register" class="profile"
-            ><input type="button" value="Hello Guest"
-          /></a>
-        </div>
+
         <div class="menu-icon" onclick="toggleMenu()">
           <i class="fas fa-bars"></i>
         </div>
