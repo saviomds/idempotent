@@ -354,7 +354,11 @@ footer {
   .navbar .menu li {
     text-align: center;
     width: 100%;
+    text-align: start;
+    line-height: 0.2px;
+    margin: 10px;
   }
+
   .menu-icon {
     position: relative;
     left: 150px;

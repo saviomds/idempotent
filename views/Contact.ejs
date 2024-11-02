@@ -38,7 +38,11 @@
           <li><a href="/Community">Community</a></li>
           <% if (session.userId) { %>
 
-          <li><a href="/Profile">Hello <%= session.userName %>! </a></li>
+          <li>
+            <a href="/Profile" class="active"
+              >Hello <%= session.userName %>!
+            </a>
+          </li>
           <% }else {%>
           <li><a href="/Login">Login</a></li>
           <% } %>

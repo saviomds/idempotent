@@ -10,14 +10,27 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
   </head>
+  <style>
+    .menu {
+      display: none;
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu.active {
+      display: block;
+    }
+  </style>
   <body>
     <header>
       <div class="navbar">
         <div class="logo">
-          <a href="#">idempotent</a>
+          <a href="/">idempotent</a>
         </div>
-        <div class="menu-icon" onclick="toggleMenu()">
-          <i class="fas fa-bars"></i>
+        <div class="menu-icon">
+          <a href="javascript:history.back()" style="color: aliceblue">
+            <i class="fa-solid fa-circle-chevron-left"></i>
+          </a>
         </div>
         <ul class="menu">
           <li><a href="/">Home</a></li>
@@ -94,12 +107,6 @@
     </footer>
 
     <script>
-      // Toggle the menu on mobile
-      function toggleMenu() {
-        const menu = document.querySelector(".menu");
-        menu.classList.toggle("active");
-      }
-
       // Scroll to top when FAB is clicked
       function scrollToTop() {
         window.scrollTo({

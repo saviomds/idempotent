@@ -174,7 +174,15 @@ footer {
   .menu.active {
     display: flex; /* Show menu when active */
   }
-
+  .menu li {
+    padding: 10px;
+    text-align: start;
+    line-height: 1.2px;
+    padding: 5px;
+    margin: 10px;
+    position: relative;
+    left: -120px;
+  }
   .contact-container {
     flex-direction: column; /* Stack contact info and form */
   }

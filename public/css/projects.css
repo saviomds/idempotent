@@ -273,6 +273,10 @@ header {
   .menu li {
     margin: 10px 0;
     text-align: center;
+    text-align: start;
+    line-height: 1.2px;
+    padding: 5px;
+    margin: 10px;
   }
 
   .menu-icon {

@@ -228,6 +228,15 @@ footer {
 
   .menu li {
     margin: 10px 0;
+    text-align: start;
+    line-height: 0.2px;
+    margin: 10px;
+  }
+  .menu li img {
+    float: right;
+    position: relative;
+    top: 35px;
+    left: -190px;
   }
 
   .menu-icon {
