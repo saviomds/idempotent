@@ -54,7 +54,16 @@ header {
   font-weight: 500;
   transition: color 0.3s;
 }
-
+.menu li img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: -50px;
+  position: relative;
+  bottom: -8px;
+  left: 10px;
+  box-shadow: rgba(0, 123, 255, 0.15) 0px 48px 100px 0px;
+}
 .menu a:hover {
   color: #5566ff;
 }

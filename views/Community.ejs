@@ -27,14 +27,18 @@
           <li><a href="/Home">Home</a></li>
           <li><a href="/services">Services</a></li>
           <li><a href="/Projects">Projects</a></li>
-          <li><a href="/Blog">Blog</a></li>
           <li><a href="/Contact">Contact</a></li>
-          <li><a href="/Community" class="active">Community</a></li>
           <% if (session.userId) { %>
 
-          <li><a href="/Profile">Hello <%= session.userName %>! </a></li>
+          <li>
+            <a href="/Profile" class="active">My Profile </a>
+            <img src="" alt="" id="randomImages" />
+          </li>
           <% } %>
         </ul>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
       </nav>
     </header>
 

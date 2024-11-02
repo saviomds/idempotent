@@ -27,6 +27,7 @@ export const Register = async (req, res) => {
     res.render("Login", {
       title: "Welcome | Idempotent",
       header: "Log in idempotent",
+      errorMessage: "",
     });
   } catch (error) {
     console.error("Error registering user:", error);
@@ -65,6 +66,7 @@ export const Login = async (req, res) => {
     // Set session data for the logged-in user
     req.session.userId = user._id;
     req.session.userName = user.name;
+    req.session.userEmail = user.email;
 
     // Redirect to the Dashboard or home page after successful login
     res.redirect("/Community");

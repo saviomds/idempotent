@@ -33,7 +33,10 @@
           <li><a href="/Contact">Contact</a></li>
           <% if (session.userId) { %>
 
-          <li><a href="/Profile">Hello <%= session.userName %>! </a></li>
+          <li>
+            <a href="/Profile" class="active">My Profile </a>
+            <img src="" alt="" id="randomImage" />
+          </li>
           <% }else{ %>
 
           <li>
@@ -100,6 +103,28 @@
         const menu = document.querySelector(".menu");
         menu.classList.toggle("active");
       }
+      function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("active");
+      }
+      const images = [
+        "images/avatars/000.jpg",
+        "images/avatars/111.jpg",
+        "images/avatars/222.jpg",
+        "images/avatars/333.jpg",
+        "images/avatars/444.jpg",
+        "images/avatars/555.jpg",
+        "images/avatars/666.jpg",
+        "images/avatars/777.jpg",
+        "images/avatars/888.jpg",
+        "images/avatars/999.jpg",
+      ];
+
+      function displayRandomImage() {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        document.getElementById("randomImage").src = images[randomIndex];
+      }
+      displayRandomImage();
     </script>
   </body>
 </html>

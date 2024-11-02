@@ -114,6 +114,15 @@ app.get("/Community", (req, res) => {
     header: "Join the Developer Community ~ Idempotent",
   });
 });
+app.get("/Profile", (req, res) => {
+  if (!req.session.userId) {
+    return res.redirect("/Login");
+  }
+  res.render("Profile", {
+    title: "Profile",
+    header: "Profile ~ Idempotent",
+  });
+});
 
 // 404 Error Handling
 app.use((req, res) => {

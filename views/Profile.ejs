@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Profile Page</title>
+    <link rel="stylesheet" href="css/profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <a href="#">idempotent</a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/Docs">Docs</a></li>
+          <li><a href="/Projects">Projects</a></li>
+          <li><a href="/Contact">Contact</a></li>
+          <li>
+            <a href="Profile" class="active">My Profile</a>
+            <img src="" alt="" id="randomImages" />
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <div class="profile-container">
+        <div class="container">
+          <div class="edit">
+            <button id="edit-button">
+              <i class="fa-regular fa-pen-to-square"></i> Edit
+            </button>
+            <button id="save-button" style="display: none">
+              <i class="fa-solid fa-floppy-disk"></i> Save
+            </button>
+          </div>
+          <div class="profile-header">
+            <img
+              src=""
+              alt="Profile Picture"
+              class="profile-pic"
+              id="randomImage"
+            />
+            <h1 id="user-name"><%= session.userName %></h1>
+          </div>
+
+          <!-- Tab Navigation -->
+          <div class="tabs">
+            <div class="tab active" onclick="showTab('about')">About Me</div>
+            <div class="tab" onclick="showTab('skills')">Skills</div>
+            <div class="tab" onclick="showTab('contact')">Contact</div>
+          </div>
+
+          <!-- Tab Content -->
+          <div id="about" class="tab-content active">
+            <h2>About Me</h2>
+            <p id="about-text">Bio</p>
+          </div>
+
+          <div id="skills" class="tab-content">
+            <h2>Skills</h2>
+            <ul class="skills" id="skills-list">
+              <li><span class="skill">HTML</span></li>
+              <li><span class="skill">CSS</span></li>
+              <li><span class="skill">JavaScript</span></li>
+              <li><span class="skill">React</span></li>
+            </ul>
+          </div>
+
+          <div id="contact" class="tab-content">
+            <h2>Contact</h2>
+            <p>Email: <span id="email"><%= session.userEmail %></span></p>
+            <p>Phone: <span id="phone">none</span></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="fab" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 ProfileApp. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      // Toggle the menu on mobile
+      function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("active");
+      }
+
+      // Scroll to top when FAB is clicked
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Show selected tab content
+      function showTab(tabId) {
+        const tabs = document.querySelectorAll(".tab");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        contents.forEach((content) => {
+          content.classList.remove("active");
+        });
+
+        document.querySelector(`.tab-content#${tabId}`).classList.add("active");
+        document
+          .querySelector(`.tab[onclick="showTab('${tabId}')"]`)
+          .classList.add("active");
+      }
+
+      document
+        .getElementById("edit-button")
+        .addEventListener("click", function () {
+          document.getElementById("edit-button").style.display = "none";
+          document.getElementById("save-button").style.display = "inline-block";
+
+          // Convert text to input fields for editing
+          let nameField = document.getElementById("user-name");
+          nameField.outerHTML = `<input type="text" id="user-name" value="${nameField.textContent}" />`;
+
+          let aboutField = document.getElementById("about-text");
+          aboutField.outerHTML = `<textarea id="about-text">${aboutField.textContent}</textarea>`;
+
+          let emailField = document.getElementById("email");
+          emailField.outerHTML = `<input type="email" id="email" value="${emailField.textContent}" />`;
+
+          let phoneField = document.getElementById("phone");
+          phoneField.outerHTML = `<input type="text" id="phone" value="${phoneField.textContent}" />`;
+
+          // Convert skills to input fields
+          const skillsList = document.getElementById("skills-list");
+          const skills = Array.from(skillsList.getElementsByClassName("skill"));
+          skillsList.innerHTML = ""; // Clear existing list
+          skills.forEach((skill) => {
+            skillsList.innerHTML += `<li><input type="text" value="${skill.textContent}" class="skill-input" /></li>`;
+          });
+        });
+
+      document
+        .getElementById("save-button")
+        .addEventListener("click", function () {
+          document.getElementById("edit-button").style.display = "inline-block";
+          document.getElementById("save-button").style.display = "none";
+
+          // Save the input fields and convert them back to text
+          let nameField = document.getElementById("user-name");
+          nameField.outerHTML = `<h1 id="user-name">${nameField.value}</h1>`;
+
+          let aboutField = document.getElementById("about-text");
+          aboutField.outerHTML = `<p id="about-text">${aboutField.value}</p>`;
+
+          let emailField = document.getElementById("email");
+          emailField.outerHTML = `<span id="email">${emailField.value}</span>`;
+
+          let phoneField = document.getElementById("phone");
+          phoneField.outerHTML = `<span id="phone">${phoneField.value}</span>`;
+
+          // Convert skills back to text
+          const skillInputs = document.querySelectorAll(".skill-input");
+          let newSkillsHtml = "";
+          skillInputs.forEach((input) => {
+            newSkillsHtml += `<span class="skill">${input.value}</span><br/>`;
+          });
+          skillsList.innerHTML = newSkillsHtml;
+        });
+      const images = [
+        "images/avatars/000.jpg",
+        "images/avatars/111.jpg",
+        "images/avatars/222.jpg",
+        "images/avatars/333.jpg",
+        "images/avatars/444.jpg",
+        "images/avatars/555.jpg",
+        "images/avatars/666.jpg",
+        "images/avatars/777.jpg",
+        "images/avatars/888.jpg",
+        "images/avatars/999.jpg",
+      ];
+
+      function displayRandomImage() {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        document.getElementById("randomImage").src = images[randomIndex];
+        document.getElementById("randomImages").src = images[randomIndex];
+      }
+      displayRandomImage();
+    </script>
+  </body>
+</html>

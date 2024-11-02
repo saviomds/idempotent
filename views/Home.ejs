@@ -35,9 +35,9 @@
           <li>
             <% if (session.userId) { %>
             <!-- Display "Hello, [name]" for logged-in users -->
-            <a href="/Profile" class="buttons btn">
-              <input type="button" value="Hello, <%= session.userName %>" />
-            </a>
+            <a href="/Profile" class="buttons btn active"> My Profile </a>
+            <img src="" alt="" id="randomImage" />
+
             <% } else { %>
             <!-- Display Login and Hello Guest for guests -->
             <a href="/Login" class="buttons btn">
@@ -123,6 +123,24 @@
         const menu = document.querySelector(".menu");
         menu.classList.toggle("active");
       }
+      const images = [
+        "images/avatars/000.jpg",
+        "images/avatars/111.jpg",
+        "images/avatars/222.jpg",
+        "images/avatars/333.jpg",
+        "images/avatars/444.jpg",
+        "images/avatars/555.jpg",
+        "images/avatars/666.jpg",
+        "images/avatars/777.jpg",
+        "images/avatars/888.jpg",
+        "images/avatars/999.jpg",
+      ];
+
+      function displayRandomImage() {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        document.getElementById("randomImage").src = images[randomIndex];
+      }
+      displayRandomImage();
     </script>
   </body>
 </html>

@@ -108,3 +108,21 @@ function toggleMenu() {
   const menu = document.querySelector(".menu");
   menu.classList.toggle("active");
 }
+const images = [
+  "images/avatars/000.jpg",
+  "images/avatars/111.jpg",
+  "images/avatars/222.jpg",
+  "images/avatars/333.jpg",
+  "images/avatars/444.jpg",
+  "images/avatars/555.jpg",
+  "images/avatars/666.jpg",
+  "images/avatars/777.jpg",
+  "images/avatars/888.jpg",
+  "images/avatars/999.jpg",
+];
+
+function displayRandomImage() {
+  const randomIndex = Math.floor(Math.random() * images.length);
+  document.getElementById("randomImages").src = images[randomIndex];
+}
+displayRandomImage();
