@@ -9,6 +9,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import nodemailer from "nodemailer";
 import bodyParser from "body-parser";
+import User from "./models/User.js";
 
 dotenv.config(); // Load environment variables
 
@@ -17,7 +18,6 @@ const codes = {};
 
 app.use(cors());
 
-// Connect to MongoDB
 connectDB();
 
 app.use(express.urlencoded({ extended: true }));
@@ -130,13 +130,26 @@ app.get("/Community", (req, res) => {
     header: "Join the Developer Community ~ Idempotent",
   });
 });
-app.get("/Profile", (req, res) => {
+
+app.get("/Profile", async (req, res) => {
   if (!req.session.userId) {
     return res.redirect("/Login");
   }
+
   res.render("Profile", {
-    title: "Profile",
-    header: "Profile ~ Idempotent",
+    title: "My Profile",
+    header: "",
+  });
+});
+
+app.get("/Followers", async (req, res) => {
+  if (!req.session.userId) {
+    return res.redirect("/Login");
+  }
+
+  res.render("Followers", {
+    title: "Followers",
+    header: "",
   });
 });
 
@@ -213,6 +226,22 @@ app.post("/verify", (req, res) => {
     return res.status(400).send("No code found for this email");
   }
 });
+app.get("/Followers", async (req, res) => {
+  try {
+    if (!req.user) {
+      return res.status(401).send("Unauthorized");
+    }
+
+    const allUsers = await User.find({ _id: { $ne: req.user._id } });
+    console.log("Users fetched:", allUsers); // Log the fetched users
+
+    res.render("Followers", { users: allUsers });
+  } catch (err) {
+    console.error("Error fetching users:", err);
+    next(err); // Use centralized error handling
+  }
+});
+
 // Start server
 const port = process.env.PORT || 5000;
 app.listen(port, () =>

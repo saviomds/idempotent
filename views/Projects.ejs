@@ -273,23 +273,18 @@
           }
         });
       };
-      const images = [
-        "images/avatars/000.jpg",
-        "images/avatars/111.jpg",
-        "images/avatars/222.jpg",
-        "images/avatars/333.jpg",
-        "images/avatars/444.jpg",
-        "images/avatars/555.jpg",
-        "images/avatars/666.jpg",
-        "images/avatars/777.jpg",
-        "images/avatars/888.jpg",
-        "images/avatars/999.jpg",
-      ];
+      const totalAvatars = 10; // Number of avatar images available
+      const images = Array.from(
+        { length: totalAvatars },
+        (_, i) => `images/avatars/${i * 111}.jpg`
+      );
 
       function displayRandomImage() {
         const randomIndex = Math.floor(Math.random() * images.length);
+        document.getElementById("randomImage").src = images[randomIndex];
         document.getElementById("randomImages").src = images[randomIndex];
       }
+
       displayRandomImage();
     </script>
   </body>

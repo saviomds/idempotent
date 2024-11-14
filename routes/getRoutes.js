@@ -8,6 +8,7 @@ router.post("/Register", Register);
 
 // Route for user login
 router.post("/Login", Login);
+
 router.get("/Logout", Logout);
 
 export default router;
