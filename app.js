@@ -10,10 +10,15 @@ import MongoStore from "connect-mongo";
 import nodemailer from "nodemailer";
 import bodyParser from "body-parser";
 import User from "./models/User.js";
+import Message from "./models/Message.js";
+import { Server } from "socket.io";
+import http from "http";
 
 dotenv.config(); // Load environment variables
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 const codes = {};
 
 app.use(cors());
@@ -147,99 +152,48 @@ app.get("/Followers", async (req, res) => {
     return res.redirect("/Login");
   }
 
-  res.render("Followers", {
-    title: "Followers",
-    header: "",
+  res.render("404", {
+    title: "Try Again | idempotent",
+    header: "Not Allow Use This Page, Ask Permission",
   });
 });
+app.get("/Chat", async (req, res) => {
+  const messages = await Message.find().sort({ timestamp: 1 });
+  res.render("Chat", { messages });
+});
 
+app.post("/Chat", async (req, res) => {
+  try {
+    const newMessage = new Message({
+      username: req.body.username,
+      message: req.body.message,
+    });
+    await newMessage.save(); // Use await instead of callback
+
+    io.emit("newMessage", {
+      username: req.body.username,
+      message: req.body.message,
+    });
+    res.redirect("/chat");
+  } catch (error) {
+    console.error("Error saving message:", error);
+    res.status(500).send("Error saving message");
+  }
+});
+
+// Socket.io for real-time communication
+io.on("connection", (socket) => {
+  console.log("A user connected");
+  socket.on("disconnect", () => {
+    console.log("A user disconnected");
+  });
+});
 // 404 Error Handling
 app.use((req, res) => {
   res.status(404).render("404", {
     title: "404 Not Found | idempotent",
     header: "Page Not Found",
   });
-});
-// Endpoint to handle form submission
-app.post("/Forget-password", async (req, res) => {
-  const { email } = req.body;
-  if (!email) {
-    res.render("Forget-password", {
-      title: "Forget-password | idempotent",
-      header: "Verify Your E-mail ~ Idempotent",
-      message: "Email is required",
-    });
-  }
-
-  // Generate a code and set its expiration time
-  const code = Math.floor(100000 + Math.random() * 900000).toString();
-  const expirationTime = Date.now() + 10 * 60 * 1000; // 10 minutes
-
-  // Store the code and expiration
-  codes[email] = { code, expirationTime };
-
-  // Send email using Nodemailer
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
-
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: email,
-    subject: "Your Verification Code",
-    text: `Your verification code is ${code}. It will expire in 10 minutes.`,
-  };
-
-  try {
-    await transporter.sendMail(mailOptions);
-    res.send("Verification code sent!");
-  } catch (error) {
-    console.error("Error sending email:", error);
-    res.status(500).send("Failed to send email");
-  }
-});
-
-// Endpoint to verify code
-app.post("/verify", (req, res) => {
-  const { email, code } = req.body;
-  if (!email || !code) {
-    return res.status(400).send("Email and code are required");
-  }
-
-  const storedCodeData = codes[email];
-  if (storedCodeData) {
-    if (Date.now() > storedCodeData.expirationTime) {
-      delete codes[email];
-      return res.status(400).send("Code has expired");
-    }
-    if (storedCodeData.code === code) {
-      delete codes[email];
-      return res.send("Code verified successfully");
-    } else {
-      return res.status(400).send("Invalid code");
-    }
-  } else {
-    return res.status(400).send("No code found for this email");
-  }
-});
-app.get("/Followers", async (req, res) => {
-  try {
-    if (!req.user) {
-      return res.status(401).send("Unauthorized");
-    }
-
-    const allUsers = await User.find({ _id: { $ne: req.user._id } });
-    console.log("Users fetched:", allUsers); // Log the fetched users
-
-    res.render("Followers", { users: allUsers });
-  } catch (err) {
-    console.error("Error fetching users:", err);
-    next(err); // Use centralized error handling
-  }
 });
 
 // Start server
