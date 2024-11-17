@@ -15,7 +15,7 @@ body {
 
 /* Navbar Styles */
 header {
-  background-color: #222;
+  background-color: #ffffff;
   padding: 20px 40px;
   position: relative;
   z-index: 1000;
@@ -32,7 +32,7 @@ header {
 .logo a {
   text-decoration: none;
   font-size: 24px;
-  color: #c9c3c3;
+  color: #4b7bec;
   font-weight: 600;
 }
 
@@ -47,7 +47,7 @@ header {
 }
 
 .menu a {
-  color: #c9c3c3;
+  color: #151515;
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
@@ -58,7 +58,7 @@ header {
 }
 
 .menu a:hover {
-  color: #f4ebed;
+  color: #4b7bec;
 }
 
 /* Hamburger Menu */
@@ -207,8 +207,8 @@ header {
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #222;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 /* Media Queries */
