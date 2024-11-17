@@ -161,7 +161,21 @@ app.get("/Chat", async (req, res) => {
   const messages = await Message.find().sort({ timestamp: 1 });
   res.render("Chat", { messages });
 });
+// Update message Still undercontroll not yet working....
+app.post("/edit-message/:id", async (req, res) => {
+  try {
+    const messageId = req.params.id;
+    const updatedMessage = req.body.message;
 
+    await Message.findByIdAndUpdate(messageId, { message: updatedMessage });
+
+    io.emit("messageUpdated", { id: messageId, newMessage: updatedMessage });
+    res.redirect("/Chat");
+  } catch (error) {
+    console.error("Error updating message:", error);
+    res.status(500).send("Error updating message");
+  }
+});
 app.post("/Chat", async (req, res) => {
   try {
     const newMessage = new Message({

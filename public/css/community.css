@@ -13,19 +13,18 @@ body {
 }
 
 /* Navbar styling */
-/* Navbar styling */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #1c1c1c;
+  background-color: #ffffff;
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .logo a {
-  color: #fff;
+  color: #5566ff;
   font-size: 1.8rem;
   font-weight: bold;
   text-decoration: none;
@@ -40,7 +39,7 @@ body {
 }
 
 .navbar .menu li a {
-  color: #bbb;
+  color: #4e4e4e;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;

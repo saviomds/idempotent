@@ -9,19 +9,14 @@
   transition: all 0.3s ease;
 }
 body {
-  background-image: linear-gradient(135deg, #333333 10%, #1a1a1a 100%);
+  background-image: linear-gradient(135deg, #ffffff 10%, #e0e0e0 100%);
   color: #e0e0e0;
   line-height: 1.6;
 }
 
-::selection {
-  color: #ffffff;
-  background: #555555;
-}
-
 /* Header Styles */
 header {
-  background-color: #222;
+  background-color: #ffffff;
   padding: 20px 40px;
 }
 
@@ -43,7 +38,7 @@ header {
 }
 
 .menu a {
-  color: #919191;
+  color: #4e4e4e;
   text-decoration: none;
   font-size: 20px;
   transition: color 0.3s;
@@ -67,25 +62,25 @@ header {
   background: rgba(255, 255, 255, 0.1);
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(170, 166, 166, 0.3);
 }
 
 .service-title {
-  color: #ffffff;
+  color: #000000;
   font-size: 28px;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .service-description {
-  color: #e0e0e0;
+  color: #2d2c2c;
   font-size: 18px;
   margin-bottom: 20px;
   text-align: center;
 }
 
 .service-details {
-  color: #f0f0f0;
+  color: #191818;
   font-size: 16px;
 }
 
@@ -97,7 +92,7 @@ header {
 }
 
 .related-services h3 {
-  color: #ffffff; /* Title color */
+  color: #000000; /* Title color */
   margin-bottom: 15px;
 }
 
@@ -110,7 +105,7 @@ header {
 }
 
 .related-services a {
-  color: #f0f0f0;
+  color: #212121;
   text-decoration: none;
   transition: color 0.3s;
 }

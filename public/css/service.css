@@ -16,34 +16,13 @@ body {
 
 ::selection {
   color: #ffffff;
-  background: #555555;
+  background: #8b8b8b;
 }
 
-body::before,
-body::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-}
-
-body::before {
-  clip-path: circle(30% at left 20%);
-  opacity: 0.4;
-  background-image: linear-gradient(135deg, #555555 10%, #333333 100%);
-}
-
-body::after {
-  opacity: 0.4;
-  clip-path: circle(25% at right 50%);
-  background-image: linear-gradient(135deg, #555555 10%, #333333 100%);
-}
 /* Navbar Styles */
 header {
-  background-color: #222;
-  padding: 20px 40px;
+  background-color: #ffffff;
+  padding: 10px 20px;
   position: relative;
   z-index: 1000;
 }
@@ -63,7 +42,7 @@ header {
 .logo a {
   text-decoration: none;
   font-size: 24px;
-  color: #ffffff;
+  color: #5566ff;
   font-weight: 600;
 }
 .navbar .buttons input {
@@ -86,19 +65,19 @@ header {
 }
 
 .menu li {
-  margin: 0 15px;
+  margin: 0 10px;
 }
 
 .menu a {
-  color: #919191;
+  color: #4e4e4e;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .menu a:hover {
-  color: #ffffff; /* Change color on hover */
+  color: #0077ff;
 }
 .menu li img {
   width: 30px;
@@ -125,7 +104,7 @@ main {
   padding: 20px;
   height: auto;
   width: auto;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgb(235, 235, 235);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(5px);
   z-index: 12;
@@ -136,7 +115,7 @@ main {
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: #000000;
 }
 
 .about {
@@ -146,6 +125,7 @@ h1 {
 
 .about h2 {
   font-size: 28px;
+  color: #000000;
   margin-bottom: 20px;
 }
 
@@ -207,26 +187,26 @@ footer {
 }
 
 .service-title {
-  color: #ffffff; /* Title color */
+  color: #000000; /* Title color */
   font-size: 28px; /* Increased font size for the title */
   margin-bottom: 10px;
   text-align: center;
 }
 
 .service-description {
-  color: #e0e0e0; /* Description color */
+  color: #000000; /* Description color */
   font-size: 18px; /* Description font size */
   margin-bottom: 20px;
   text-align: center;
 }
 
 .service-details {
-  color: #f0f0f0; /* Detail color */
+  color: #000000; /* Detail color */
   font-size: 16px; /* Details font size */
 }
 
 .service-details strong {
-  color: #ffffff; /* Strong text color for headings */
+  color: #000000; /* Strong text color for headings */
 }
 
 /* List styles for key features */
@@ -253,8 +233,10 @@ footer {
     width: 100%;
     position: absolute;
     top: 100%;
+    padding: 10px 0;
+    margin-top: 20px;
     left: 0;
-    background-color: #222;
+    background-color: #ffffff;
     border-top: 1px solid #5566ff; /* Top border for dropdown */
   }
 
@@ -263,19 +245,18 @@ footer {
   }
 
   .menu li {
-    margin: 10px 0;
     text-align: center;
     text-align: start;
     line-height: 1.2px;
-    padding: 5px;
     margin: 10px;
+    padding: 10px;
   }
 
   .menu-icon {
     display: block; /* Show hamburger icon */
     margin-left: auto;
-    /* Align to the right */
-    margin-right: -20px;
+    margin-right: 10px;
+    color: #000000;
   }
 
   .services-container {

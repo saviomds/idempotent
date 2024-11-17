@@ -15,7 +15,10 @@ body {
   align-items: center;
   min-height: 100vh;
 }
-
+.logo_name {
+  text-decoration: none;
+  color: #fff;
+}
 /* Chat Container */
 .chat-container {
   width: 90%;

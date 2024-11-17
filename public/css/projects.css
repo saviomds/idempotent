@@ -9,17 +9,17 @@
 }
 
 body {
-  background-color: #121212;
+  background-color: #ffffff;
   color: #333;
   line-height: 1.6;
 }
 
 /* Navbar Styles */
 header {
-  background-color: #222;
   padding: 20px 40px;
   position: relative;
   z-index: 1000;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 }
 
 .navbar {
@@ -27,13 +27,13 @@ header {
   justify-content: space-between;
   align-items: center;
   max-width: 1550px;
-  margin: 0 auto;
 }
 
 .logo a {
   text-decoration: none;
   font-size: 24px;
-  color: #ffffff;
+  color: #5566ff;
+
   font-weight: 600;
 }
 
@@ -41,14 +41,15 @@ header {
   display: flex;
   list-style: none;
   margin-left: auto;
+  padding: 10px 0;
 }
 
 .menu li {
-  margin: 0 15px;
+  margin: 0 10px;
 }
 
 .menu a {
-  color: #ffffff;
+  color: #4e4e4e;
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
@@ -75,7 +76,7 @@ header {
   display: none;
   cursor: pointer;
   font-size: 24px;
-  color: #ffffff;
+  color: #000000;
 }
 
 /* Main Styles */
@@ -91,12 +92,12 @@ main {
 .project-intro h1 {
   font-size: 36px;
   margin-bottom: 10px;
-  color: #dadada;
+  color: #000000;
 }
 
 .project-intro p {
   font-size: 18px;
-  color: #969393;
+  color: #525050;
 }
 
 /* Projects Container */
@@ -110,7 +111,7 @@ main {
 }
 
 .project-card {
-  background: #2b2b2b;
+  background: #eeeeee;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden; /* Ensures the image doesn't overflow the card */
@@ -133,7 +134,7 @@ main {
 }
 
 .project-card h2 {
-  color: #cec7c7;
+  color: #201f1f;
   font-size: 20px;
   margin: 10px 0;
 }
@@ -186,12 +187,12 @@ main {
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #222;
-  color: #ffffff;
+  background-color: #f1f1f1c2;
+  color: #000000;
 }
 /* Navbar Styles */
 header {
-  background-color: #222;
+  background-color: #ffffff;
   padding: 20px 40px;
   position: relative;
   z-index: 1000;
@@ -228,7 +229,7 @@ header {
     top: 100%; /* Position below the navbar */
     left: 0;
     margin-top: -30px;
-    background-color: #222;
+
     border-top: 1px solid #5566ff;
   }
 
@@ -262,7 +263,7 @@ header {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #222;
+
     border-top: 1px solid #5566ff;
   }
 
