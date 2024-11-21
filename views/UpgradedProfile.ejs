@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile | idempotent</title>
+    <!---external css ---->
+    <link rel="stylesheet" href="css/upgradedProfile.css" />
+    <!---font awesome cdn for font icons---->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Logos/favicon-32x32.png"
+    />
+
+    <link rel="apple-touch-icon" href="Logos/apple-touch-icon.png" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="Logos/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="Logos/android-chrome-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="Logos/android-chrome-512x512.png"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="back">
+      <div><a href="/">idempotent</a></div>
+    </div>
+    <div class="container">
+      <div class="profile-card">
+        <div class="profile-pic">
+          <img src="" alt="user avatar" id="randomImage" />
+        </div>
+
+        <div class="profile-details">
+          <div class="intro">
+            <h2><%= session.userName %></h2>
+            <h4>
+              <a href="Chat"><button class="btn-message">Message</button></a>
+            </h4>
+            <div class="social">
+              <a href="#"
+                ><i class="fab fa-facebook" style="color: var(--blue)"></i
+              ></a>
+              <a href="#"
+                ><i class="fab fa-twitter" style="color: var(--skyblue)"></i
+              ></a>
+              <a href="#"
+                ><i class="fab fa-dribbble" style="color: var(--dark-pink)"></i
+              ></a>
+              <a href="#"
+                ><i class="fab fa-linkedin" style="color: var(--light-blue)"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="contact-info">
+            <!-- <div class="row">
+              <div class="icon">
+                <i class="fa fa-phone" style="color: var(--dark-magenta)"></i>
+              </div>
+              <div class="content">
+                <span>Phone</span>
+                <h5>+123 456 789</h5>
+              </div>
+            </div> -->
+
+            <div class="row">
+              <div class="icon">
+                <i
+                  class="fa fa-envelope-open"
+                  style="color: var(--light-green)"
+                ></i>
+              </div>
+              <div class="content">
+                <span>Email</span>
+                <h5><%= session.userEmail %></h5>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="icon">
+                <i
+                  class="fa fa-map-marker"
+                  style="color: var(--light-purple)"
+                ></i>
+              </div>
+              <div class="content">
+                <span>Location</span>
+                <h5>Rwanda, Kigali</h5>
+              </div>
+            </div>
+          </div>
+          <button class="download-btn">Contact Us</button>
+        </div>
+      </div>
+
+      <!----about section ----->
+      <div class="about">
+        <h1>About idempotent</h1>
+
+        <p>
+          Idempotent is a company that embodies the principle of achieving
+          consistent and reliable outcomes. Inspired by the technical concept of
+          idempotency, we specialize in creating systems and solutions that
+          maintain integrity, predictability, and resilience—regardless of
+          external conditions.
+        </p>
+
+        <p>
+          Our advanced methodologies ensure seamless retries, fault-tolerant
+          operations, and robust user experiences, making us a trusted partner
+          for scalable, high-performance development.
+        </p>
+        <h2>What we Do !!!</h2>
+        <div class="work">
+          <div class="workbox">
+            <div class="icon">
+              <img src="images/ui.svg" alt="" />
+            </div>
+            <div class="desc">
+              <h3>UI/UX Designer</h3>
+              <p>
+                We design intuitive and visually appealing user interfaces,
+                focusing on seamless user experiences.
+              </p>
+            </div>
+          </div>
+
+          <div class="workbox">
+            <div class="icon">
+              <img src="images/app.svg" alt="" />
+            </div>
+            <div class="desc">
+              <h3>App Developement</h3>
+              <p>
+                Our team builds high-performance mobile apps that offer smooth,
+                cross-platform functionality.
+              </p>
+            </div>
+          </div>
+
+          <div class="workbox">
+            <div class="icon">
+              <img src="images/api.svg" alt="" />
+            </div>
+            <div class="desc">
+              <h3>API Developement</h3>
+              <p>
+                We create reliable, secure, and scalable APIs to integrate and
+                optimize your systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="workbox">
+            <div class="icon">
+              <img src="images/web.svg" alt="" />
+            </div>
+            <div class="desc">
+              <h3>Web Developement</h3>
+              <p>
+                We develop responsive and fast websites optimized for
+                performance, SEO, and user engagement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Scroll to top when FAB is clicked
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Show selected tab content
+      function showTab(tabId) {
+        const tabs = document.querySelectorAll(".tab");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        contents.forEach((content) => {
+          content.classList.remove("active");
+        });
+
+        document.querySelector(`.tab-content#${tabId}`).classList.add("active");
+        document
+          .querySelector(`.tab[onclick="showTab('${tabId}')"]`)
+          .classList.add("active");
+      }
+      const totalAvatars = 10; // Number of avatar images available
+      const images = Array.from(
+        { length: totalAvatars },
+        (_, i) => `images/avatars/${i * 111}.jpg`
+      );
+
+      function displayRandomImage() {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        document.getElementById("randomImage").src = images[randomIndex];
+      }
+
+      displayRandomImage();
+    </script>
+  </body>
+</html>

@@ -141,7 +141,7 @@ app.get("/Profile", async (req, res) => {
     return res.redirect("/Login");
   }
 
-  res.render("Profile", {
+  res.render("UpgradedProfile", {
     title: "My Profile",
     header: "",
   });
