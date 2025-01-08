@@ -7,7 +7,7 @@ type SectionKey = "Home" | "Inbox" | "Mentors" | "Profile" | "Settings";
 type SectionData = {
   title: string;
   description: string;
-  cards: Array<{ title: string; description: string; image?: string }>;
+  cards: Array<{ title: string; description: string; image?: string; id: string }>;
 };
 
 type InboxMessage = {
@@ -82,6 +82,13 @@ export default function Dashboard() {
       (filterOptions.status ? message.status === filterOptions.status : true) &&
       (filterOptions.category ? message.category === filterOptions.category : true)
   );
+
+  const handleFollow = (id: string) => {
+    setFollowingMentors((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   if (!sections[activeSection]) {
     return <div>Loading...</div>;
@@ -185,17 +192,50 @@ export default function Dashboard() {
               </div>
             )
           )}
-          {activeSection !== "Profile" && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {sections[activeSection].cards.map((card, index) => (
-                <div key={index} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex flex-col">
-                  <img src={card.image ?? ""} alt={card.title} className="w-full h-48 object-cover rounded-t-lg mb-4" />
-                  <h3 className="text-lg font-semibold text-gray-800">{card.title}</h3>
-                  <p className="text-gray-600">{card.description}</p>
-                </div>
-              ))}
-            </div>
-          )}
+        {activeSection !== "Profile" && (
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {sections[activeSection].cards.map((card, index) => (
+      <div
+        key={index}
+        className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex flex-col"
+      >
+        <img
+          src={card.image ?? ""}
+          alt={card.title}
+          className="w-full h-48 object-cover rounded-t-lg mb-4"
+        />
+        <h3 className="text-lg font-semibold text-gray-800">
+          {card.title}
+        </h3>
+        <p className="text-gray-600 mb-4">{card.description}</p>
+        <div className="mt-auto flex justify-between items-center">
+          {activeSection === "Mentors" ? (
+            <button
+              onClick={() => handleFollow(card.id)}
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              Follow
+            </button>
+          ) : activeSection === "Home" ? (
+            <button
+              onClick={() => console.log(`Learn more about ${card.title}`)}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+            >
+              Learn More
+            </button>
+          ) : null}
+          <a
+            href={`/profile/${card.title}`}
+            className="text-blue-500 hover:underline text-sm"
+          >
+            View Profile
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+)}
+
         </div>
       </main>
     </div>

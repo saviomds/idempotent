@@ -5,13 +5,13 @@
     "cards": [
       { "title": "Latest News", "description": "Stay updated with the latest news and announcements.", 
       "category": "Work",
-      "image": "/images/1.jpg"
+      "image": "/images/update/update-1.jpeg"
     },
       { "title": "Upcoming Events", "description": "Check out the upcoming events and webinars.", "category": "Personal",
-      "image": "/images/2.jpg"
+      "image": "/images/update/update-2.jpg"
     },
       { "title": "Dashboard Overview", "description": "Quick access to your personalized dashboard.", "category": "Work",
-      "image": "/images/3.jpg"
+      "image": "/images/update/update-3.jpg"
     }
     ]
   },
