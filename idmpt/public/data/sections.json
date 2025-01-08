@@ -3,9 +3,16 @@
     "title": "Home",
     "description": "Your starting page overview. Here you can get quick access to your latest updates.",
     "cards": [
-      { "title": "Latest News", "description": "Stay updated with the latest news and announcements.", "category": "Work" },
-      { "title": "Upcoming Events", "description": "Check out the upcoming events and webinars.", "category": "Personal" },
-      { "title": "Dashboard Overview", "description": "Quick access to your personalized dashboard.", "category": "Work" }
+      { "title": "Latest News", "description": "Stay updated with the latest news and announcements.", 
+      "category": "Work",
+      "image": "/images/1.jpg"
+    },
+      { "title": "Upcoming Events", "description": "Check out the upcoming events and webinars.", "category": "Personal",
+      "image": "/images/2.jpg"
+    },
+      { "title": "Dashboard Overview", "description": "Quick access to your personalized dashboard.", "category": "Work",
+      "image": "/images/3.jpg"
+    }
     ]
   },
   "Inbox": {
@@ -14,7 +21,7 @@
     "cards": [
       {
         "title": "John Doe ",
-        "description": "This is the first message.",
+        "description": "Hey There.",
         "status": "Active",
         "unread": true,
         "category": "Work",
@@ -22,7 +29,7 @@
       },
       {
         "title": "Jane Smith",
-        "description": "This is the second message.",
+        "description": "idempotent does it give certificate.",
         "status": "Inactive",
         "unread": false,
         "category": "Personal",
@@ -30,7 +37,7 @@
       },
       {
         "title": "Alex Johnson",
-        "description": "This is the third message.",
+        "description": "I need to ask you something.",
         "status": "Active",
         "unread": true,
         "category": "Work",
