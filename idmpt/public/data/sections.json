@@ -13,7 +13,7 @@
     "description": "Check your latest messages.",
     "cards": [
       {
-        "title": "Message 1",
+        "title": "John Doe ",
         "description": "This is the first message.",
         "status": "Active",
         "unread": true,
@@ -21,7 +21,7 @@
         "image": "/images/1.jpg"
       },
       {
-        "title": "Message 2",
+        "title": "Jane Smith",
         "description": "This is the second message.",
         "status": "Inactive",
         "unread": false,
@@ -29,12 +29,20 @@
         "image": "/images/2.jpg"
       },
       {
-        "title": "Message 3",
+        "title": "Alex Johnson",
         "description": "This is the third message.",
         "status": "Active",
         "unread": true,
         "category": "Work",
         "image": "/images/3.jpg"
+      },
+      {
+        "title": "Me",
+        "description": "This is Me.",
+        "status": "Active",
+        "unread": true,
+        "category": "Personal",
+        "image": "/images/profile.jpg"
       }
     ]
   },
