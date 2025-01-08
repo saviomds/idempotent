@@ -30,7 +30,7 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-    // Load sections
+    // Load sections and map Inbox messages to state
     fetch("/data/sections.json")
       .then((response) => {
         if (!response.ok) {
@@ -38,11 +38,25 @@ export default function Dashboard() {
         }
         return response.json();
       })
-      .then((data) => setSections(data))
+      .then((data) => {
+        setSections(data);
+        if (data.Inbox?.cards) {
+          setInboxMessages(
+            data.Inbox.cards.map((card: { title: string; description: string; status: string; image?: string; category?: string }) => ({
+              title: card.title,
+              description: card.description,
+              status: card.status,
+              timestamp: "Jan 8, 2025", // Add timestamp for demonstration
+              image: card.image,
+              category: card.category,
+            }))
+          );
+        }
+      })
       .catch((error) => console.error("Error loading sections:", error));
 
     // Fetch inbox messages
-    fetch("/data/inbox.json")
+    fetch("/data/sections.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch inbox messages");
@@ -211,8 +225,8 @@ export default function Dashboard() {
                       className="p-2 border border-gray-300 rounded-md"
                     >
                       <option value="">All Status</option>
-                      <option value="Unread">Unread</option>
-                      <option value="Read">Read</option>
+                      <option value="Active">Active</option>
+                      <option value="Inactive">Inactive</option>
                     </select>
                     <select
                       name="category"
@@ -225,81 +239,54 @@ export default function Dashboard() {
                       <option value="Personal">Personal</option>
                     </select>
                   </div>
-                  {filteredMessages.map((message, index) => (
-                    <div key={index} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex items-start space-x-4">
-                      <div className="w-10 h-10 flex-shrink-0">
-                        {message.image ? (
-                          <img
-                            src={message.image}
-                            alt={message.title}
-                            className="object-cover w-full h-full rounded-full border-2 border-blue-500"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gray-300 rounded-full border-2 border-gray-500">
-                            No Image
+                  {filteredMessages.length > 0 ? (
+                    filteredMessages.map((message, index) => (
+                      <div
+                        key={index}
+                        className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex items-start space-x-4"
+                      >
+                        <div className="w-10 h-10 flex-shrink-0">
+                          {message.image ? (
+                            <img
+                              src={message.image}
+                              alt={message.title}
+                              className="object-cover w-full h-full rounded-full border-2 border-blue-500"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-gray-300 rounded-full border-2 border-gray-500">
+                              No Image
+                            </div>
+                          )}
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-semibold text-gray-800">{message.title}</h3>
+                          <p className="text-gray-600">{message.description}</p>
+                          <div className="text-sm text-gray-500">
+                            <span>Status: {message.status}</span>
+                            <br />
+                            <span>Category: {message.category}</span>
                           </div>
-                        )}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-800">{message.title}</h3>
-                        <p className="text-gray-600">{message.description}</p>
-                        <div className="text-sm text-gray-500 flex justify-between items-center">
-                          <span>{message.status}</span>
-                          <span>{message.timestamp}</span>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    <p className="text-gray-600">No messages found for the selected filters.</p>
+                  )}
                 </div>
               )}
             </div>
           )}
-          
           {/* Grid Layout for Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {sections[activeSection].cards.map((card, index) => (
-              <div
-                key={index}
-                className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:scale-105"
-              >
-                {activeSection === "Mentors" && card.image && (
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="object-cover w-full h-32 rounded-lg mb-4"
-                  />
-                )}
-                <h3 className="text-lg font-semibold text-left text-gray-800">{card.title}</h3>
-                <p className="text-gray-600 text-left">{card.description}</p>
-
-                {/* Home Section: Add "Learn More" button */}
-                {activeSection === "Home" && (
-                  <button className="mt-4 px-4 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">
-                    Learn More
-                  </button>
-                )}
-
-                {/* Mentors Section: Add "Follow" button and "View Profile" link */}
-                {activeSection === "Mentors" && (
-                  <div className="mt-4 flex items-center justify-between">
-                    <button
-                      onClick={() => handleFollow(card.title)}
-                      className={`px-3 py-2 text-sm rounded-lg transition-all ${
-                        followingMentors[card.title]
-                          ? "bg-gray-800 text-white"
-                          : "bg-blue-500 text-white hover:bg-blue-600"
-                      }`}
-                    >
-                      {followingMentors[card.title] ? "Following" : "Follow"}
-                    </button>
-                    <a
-                      href={`/mentors/${card.title.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-blue-500 text-sm underline hover:text-blue-600"
-                    >
-                      View Profile
-                    </a>
-                  </div>
-                )}
+              <div key={index} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex flex-col">
+                <img
+                  src={card.image ?? ""}
+                  alt={card.title}
+                  className="w-full h-48 object-cover rounded-t-lg mb-4"
+                />
+                <h3 className="text-lg font-semibold text-gray-800">{card.title}</h3>
+                <p className="text-gray-600">{card.description}</p>
               </div>
             ))}
           </div>
