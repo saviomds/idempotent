@@ -1,37 +1,61 @@
 {
-    "Home": {
-      "title": "Home",
-      "description": "Your starting page overview. Here you can get quick access to your latest updates.",
-      "cards": [
-        { "title": "Latest News", "description": "Stay updated with the latest news and announcements." },
-        { "title": "Upcoming Events", "description": "Check out the upcoming events and webinars." },
-        { "title": "Dashboard Overview", "description": "Quick access to your personalized dashboard." }
-      ]
-    },
-    "Inbox": {
-      "title": "Inbox",
-      "description": "Check your latest messages.",
-      "cards": []
-    },
-    "Mentors": {
-      "title": "Mentors",
-      "description": "Find guidance from experts. Connect with mentors to accelerate your learning.",
-      "cards": [
-        { "title": "John Doe", "description": "Expert in Web Development and Frontend Technologies.", "image": "/images/1.jpg" },
-        { "title": "Jane Smith", "description": "Data Science and Machine Learning Specialist.", "image": "/images/2.jpg" },
-        { "title": "Alex Johnson", "description": "Backend Developer and DevOps Expert.", "image": "/images/3.jpg" },
-        { "title": "Dominique Savio M", "description": "Data Science, Backend Developer and DevOps Expert.", "image": "/images/profile.jpg" }
-      ]
-    },
-    "Profile": {
-      "title": "Profile",
-      "description": "Update your account details, change your preferences, and more.",
-      "cards": [
-        { "title": "User Information", "description": "View and edit your personal details, such as name, email, and password." },
-        { "title": "Skills", "description": "Manage and update the skills that represent your expertise in various fields." },
-        { "title": "Contact", "description": "Update your contact details, such as phone number or social media profiles." },
-        { "title": "Recent Activities", "description": "View your recent activities and achievements." }
-      ]
-    }
+  "Home": {
+    "title": "Home",
+    "description": "Your starting page overview. Here you can get quick access to your latest updates.",
+    "cards": [
+      { "title": "Latest News", "description": "Stay updated with the latest news and announcements.", "category": "Work" },
+      { "title": "Upcoming Events", "description": "Check out the upcoming events and webinars.", "category": "Personal" },
+      { "title": "Dashboard Overview", "description": "Quick access to your personalized dashboard.", "category": "Work" }
+    ]
+  },
+  "Inbox": {
+    "title": "Inbox",
+    "description": "Check your latest messages.",
+    "cards": [
+      {
+        "title": "Message 1",
+        "description": "This is the first message.",
+        "status": "Active",
+        "unread": true,
+        "category": "Work",
+        "image": "/images/1.jpg"
+      },
+      {
+        "title": "Message 2",
+        "description": "This is the second message.",
+        "status": "Inactive",
+        "unread": false,
+        "category": "Personal",
+        "image": "/images/2.jpg"
+      },
+      {
+        "title": "Message 3",
+        "description": "This is the third message.",
+        "status": "Active",
+        "unread": true,
+        "category": "Work",
+        "image": "/images/3.jpg"
+      }
+    ]
+  },
+  "Mentors": {
+    "title": "Mentors",
+    "description": "Find guidance from experts. Connect with mentors to accelerate your learning.",
+    "cards": [
+      { "title": "John Doe", "description": "Expert in Web Development and Frontend Technologies.", "image": "/images/1.jpg", "status": "Active", "category": "Work" },
+      { "title": "Jane Smith", "description": "Data Science and Machine Learning Specialist.", "image": "/images/2.jpg", "status": "Active", "category": "Work" },
+      { "title": "Alex Johnson", "description": "Backend Developer and DevOps Expert.", "image": "/images/3.jpg", "status": "Inactive", "category": "Work" },
+      { "title": "Dominique Savio M", "description": "Data Science, Backend Developer and DevOps Expert.", "image": "/images/profile.jpg", "status": "Active", "category": "Personal" }
+    ]
+  },
+  "Profile": {
+    "title": "Profile",
+    "description": "Update your account details, change your preferences, and more.",
+    "cards": [
+      { "title": "User Information", "description": "View and edit your personal details, such as name, email, and password.", "category": "Work" },
+      { "title": "Skills", "description": "Manage and update the skills that represent your expertise in various fields.", "category": "Personal" },
+      { "title": "Contact", "description": "Update your contact details, such as phone number or social media profiles.", "category": "Work" },
+      { "title": "Recent Activities", "description": "View your recent activities and achievements.", "category": "Personal" }
+    ]
   }
-  
+}
