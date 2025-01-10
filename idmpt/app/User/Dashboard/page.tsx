@@ -41,6 +41,8 @@ export default function Dashboard() {
   const [formData, setFormData] = useState<typeof profileData>(profileData);
   const [inboxMessages, setInboxMessages] = useState<InboxMessage[]>([]);
   const [filterOptions, setFilterOptions] = useState({ status: "", category: "" });
+  const [followedCards, setFollowedCards] = useState<Set<number>>(new Set());
+  const [followingMentors, setFollowingMentors] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     fetch("/data/sections.json")
@@ -113,9 +115,11 @@ export default function Dashboard() {
       (filterOptions.status ? message.status === filterOptions.status : true) &&
       (filterOptions.category ? message.category === filterOptions.category : true)
   );
-
-  const handleFollow = (id: string) => {
-    // Handle following/unfollowing logic here
+  const handleFollow = (mentor: string) => {
+    setFollowingMentors((prev) => ({
+      ...prev,
+      [mentor]: !prev[mentor],
+    }));
   };
 
   if (!sections[activeSection]) {
@@ -283,10 +287,20 @@ export default function Dashboard() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800">{message.title}</h3>
-                      <p className="text-gray-600">{message.description}</p>
+                      <p className="text-blue-600">{message.description}</p>
                       <div className="text-sm text-gray-500">
-                        <span>Status: {message.status}</span>
+                      <span>
+                          Status: 
+                          <p
+                            className={`inline-block ${
+                              message.status === "Active" ? "text-blue-600" : "text-gray-600"
+                            }`}
+                          >
+                            {message.status}
+                          </p>
+                        </span>
                         <br />
+
                         <span>Category: {message.category}</span>
                       </div>
                     </div>
@@ -297,50 +311,54 @@ export default function Dashboard() {
               )}
             </div>
           )}
-
-          {activeSection !== "Profile" && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {(sections[activeSection] as SectionData).cards.map((card, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex flex-col"
-                >
-                  <img
-                    src={card.image ?? ""}
-                    alt={card.title}
-                    className="w-full h-48 object-cover rounded-t-lg mb-4"
-                  />
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    {card.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{card.description}</p>
-                  <div className="mt-auto flex justify-between items-center">
-                    {activeSection === "Mentors" ? (
-                      <button
-                        onClick={() => handleFollow(card.id)}
-                        className="px-4 py-2 rounded-lg shadow focus:outline-none focus:ring-2 bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-400"
-                      >
-                        Follow
-                      </button>
-                    ) : activeSection === "Home" ? (
-                      <button
-                        onClick={() => console.log(`Learn more about ${card.title}`)}
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400"
-                      >
-                        Learn More
-                      </button>
-                    ) : null}
-                    <a
-                      href={`/profile/${card.id}`}
-                      className="text-blue-500 hover:underline text-sm"
-                    >
-                      View Profile
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+{activeSection !== "Profile" && (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {(sections[activeSection] as SectionData).cards.map((card: any, index: number) => (
+        <div
+          key={card.id} // Use card.id as the key (ensure it's unique)
+          className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex flex-col"
+        >
+          <img
+            src={card.image ?? ""}
+            alt={card.title}
+            className="w-full h-48 object-cover rounded-t-lg mb-4"
+          />
+          <h3 className="text-lg font-semibold text-gray-800">
+            {card.title}
+          </h3>
+          <p className="text-gray-600 mb-4">{card.description}</p>
+          <div className="mt-auto flex justify-between items-center">
+            {activeSection === "Mentors" ? (
+              <button
+                onClick={() => handleFollow(card.id)} // Call handler with the specific card ID
+                className={`px-4 py-2 rounded-lg shadow focus:outline-none focus:ring-2 ${
+                  followedCards.has(card.title)
+                    ? "bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-400"
+                    : "bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-400"
+                }`}
+              >
+                {followedCards.has(card.title) ? "Unfollow" : "Follow"}
+              </button>
+            ) : activeSection === "Home" ? (
+              <button
+                onClick={() => console.log(`Learn more about ${card.title}`)}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              >
+                Learn More
+              </button>
+            ) : null}
+            <a
+              href={`/profile/${card.id}`}
+              className="text-blue-500 hover:underline text-sm"
+            >
+              View Profile
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+  
         </div>
       </main>
     </div>
