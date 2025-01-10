@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
-import Profile from "../../../public/images/profile.jpg";
+import React, { useEffect, useState } from "react";
+import Profile from "../../../public/images/profile.jpg"; // Ensure correct image path
 
 type SectionKey = "Home" | "Inbox" | "Mentors" | "Profile" | "Settings";
 
@@ -20,7 +20,7 @@ type InboxMessage = {
 };
 
 export default function Dashboard() {
-  const [activeSection, setActiveSection] = useState<SectionKey>("Home");
+  const [activeSection, setActiveSection] = useState<SectionKey>("Profile");
   const [sections, setSections] = useState<Record<SectionKey, SectionData>>({
     Home: { title: "", description: "", cards: [] },
     Inbox: { title: "", description: "", cards: [] },
@@ -28,14 +28,16 @@ export default function Dashboard() {
     Profile: { title: "", description: "", cards: [] },
     Settings: { title: "", description: "", cards: [] }
   });
-  const [followingMentors, setFollowingMentors] = useState<Record<string, boolean>>({});
+
   const [isEditingProfile, setIsEditingProfile] = useState(false);
   const [profileData, setProfileData] = useState({
     name: "Savio",
     email: "savio@example.com",
     contact: '',
-    password: ''
+    password: '',
+    profilePicture: Profile.src
   });
+  
   const [formData, setFormData] = useState<typeof profileData>(profileData);
   const [inboxMessages, setInboxMessages] = useState<InboxMessage[]>([]);
   const [filterOptions, setFilterOptions] = useState({ status: "", category: "" });
@@ -67,6 +69,35 @@ export default function Dashboard() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        if (e.target?.result) {
+          const imagePath = `uploads/${file.name}`;
+          setProfileData(prev => ({ ...prev, profilePicture: imagePath }));
+
+          try {
+            const response = await fetch("../../User/api/upload", {
+              method: "POST",
+              body: JSON.stringify({ imagePath, file: e.target.result }),
+              headers: { "Content-Type": "application/json" }
+            });
+
+            if (!response.ok) {
+              throw new Error(`Failed to upload the profile picture: ${response.statusText}`);
+            }
+          } catch (error) {
+            console.error(error);
+            alert("An error occurred while uploading the profile picture. Please try again.");
+          }
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleSaveProfile = () => {
     setProfileData(formData);
     setIsEditingProfile(false);
@@ -84,10 +115,7 @@ export default function Dashboard() {
   );
 
   const handleFollow = (id: string) => {
-    setFollowingMentors((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
+    // Handle following/unfollowing logic here
   };
 
   if (!sections[activeSection]) {
@@ -120,122 +148,199 @@ export default function Dashboard() {
           <div className="flex items-center space-x-3">
             <p className="text-sm font-medium text-gray-700">{profileData.name}</p>
             <div className="w-10 h-10">
-              <img src={Profile.src} alt="User Profile" className="object-cover w-full h-full rounded-full border-2 border-blue-500" />
+            <img src={profileData.profilePicture} alt="User Profile" className="object-cover w-full h-full rounded-full border-2 border-blue-500" />
+
             </div>
             {activeSection === "Profile" && (
               <button onClick={() => setIsEditingProfile(prev => !prev)} className="px-4 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">
                 {isEditingProfile ? "Cancel" : "Edit Profile"}
               </button>
             )}
+            {isEditingProfile && (
+              <input
+                type="file"
+                id="profile-picture"
+                className="hidden"
+                onChange={handleFileChange}
+              />
+            )}
           </div>
         </div>
 
         <div className="bg-gray-50 shadow rounded-lg p-4">
-          {activeSection === "Profile" && isEditingProfile ? (
-            <form className="space-y-4">
-              {(['name', 'email', 'contact', 'password'] as Array<keyof typeof formData>).map(field => (
-                <div key={field}>
-                  <label htmlFor={field} className="block text-sm font-medium text-gray-700 capitalize">{field}</label>
-                  <input
-                    type={field === "password" ? "password" : "text"}
-                    id={field}
-                    name={field}
-                    value={formData[field]}
-                    onChange={handleInputChange}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          {activeSection === "Profile" && (
+            <div className="bg-white shadow-lg rounded-lg p-6 lg:p-8 flex flex-col lg:flex-row gap-8">
+              <div className="lg:w-1/3 flex flex-col items-center text-center">
+                <div className="relative w-32 h-32 lg:w-40 lg:h-40">
+                  <img
+                    src={profileData.profilePicture}
+                    alt="User Profile"
+                    className="rounded-full border-4 border-blue-500 shadow-lg object-cover w-full h-full"
                   />
+                  {isEditingProfile && (
+                    <label
+                      htmlFor="profile-picture"
+                      className="absolute bottom-0 right-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center shadow cursor-pointer hover:bg-blue-600"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                        stroke="currentColor"
+                        className="w-5 h-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15.232 5.232l3.536 3.536M16.5 4.5l-9 9M6 18.75v.75h.75L17.25 8.25a.75.75 0 00-1.06-1.06L6 18.75z"
+                        />
+                      </svg>
+                    </label>
+                  )}
                 </div>
-              ))}
-              <button type="button" onClick={handleSaveProfile} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">Save</button>
-            </form>
-          ) : (
-            activeSection === "Inbox" && (
-              <div className="space-y-4">
-                <div className="flex justify-between mb-4">
-                  <select name="status" value={filterOptions.status} onChange={handleFilterChange} className="p-2 border border-gray-300 rounded-md">
-                    <option value="">All Status</option>
-                    <option value="Active">Active</option>
-                    <option value="Inactive">Inactive</option>
-                  </select>
-                  <select name="category" value={filterOptions.category} onChange={handleFilterChange} className="p-2 border border-gray-300 rounded-md">
-                    <option value="">All Categories</option>
-                    <option value="Work">Work</option>
-                    <option value="Personal">Personal</option>
-                  </select>
-                </div>
-                {filteredMessages.length > 0 ? (
-                  filteredMessages.map((message, index) => (
-                    <div key={index} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex items-start space-x-4">
-                      <div className="w-10 h-10 flex-shrink-0">
-                        {message.image ? (
-                          <img src={message.image} alt={message.title} className="object-cover w-full h-full rounded-full border-2 border-blue-500" />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gray-300 rounded-full border-2 border-gray-500">
-                            No Image
-                          </div>
-                        )}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-800">{message.title}</h3>
-                        <p className="text-gray-600">{message.description}</p>
-                        <div className="text-sm text-gray-500">
-                          <span>Status: {message.status}</span>
-                          <br />
-                          <span>Category: {message.category}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))
+                <h3 className="text-xl lg:text-2xl font-semibold text-gray-800 mt-4">
+                  {profileData.name}
+                </h3>
+                <p className="text-sm text-gray-600">{profileData.email}</p>
+                {isEditingProfile ? (
+                  <button
+                    onClick={handleSaveProfile}
+                    className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-all"
+                  >
+                    Save Profile
+                  </button>
                 ) : (
-                  <p className="text-gray-600">No messages found for the selected filters.</p>
+                  <button
+                    onClick={() => setIsEditingProfile(true)}
+                    className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-all"
+                  >
+                    Edit Profile
+                  </button>
                 )}
               </div>
-            )
-          )}
-        {activeSection !== "Profile" && (
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    {sections[activeSection].cards.map((card, index) => (
-      <div
-        key={index}
-        className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex flex-col"
-      >
-        <img
-          src={card.image ?? ""}
-          alt={card.title}
-          className="w-full h-48 object-cover rounded-t-lg mb-4"
-        />
-        <h3 className="text-lg font-semibold text-gray-800">
-          {card.title}
-        </h3>
-        <p className="text-gray-600 mb-4">{card.description}</p>
-        <div className="mt-auto flex justify-between items-center">
-          {activeSection === "Mentors" ? (
-            <button
-              onClick={() => handleFollow(card.id)}
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            >
-              Follow
-            </button>
-          ) : activeSection === "Home" ? (
-            <button
-              onClick={() => console.log(`Learn more about ${card.title}`)}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400"
-            >
-              Learn More
-            </button>
-          ) : null}
-          <a
-            href={`/profile/${card.title}`}
-            className="text-blue-500 hover:underline text-sm"
-          >
-            View Profile
-          </a>
-        </div>
-      </div>
-    ))}
-  </div>
-)}
 
+              <div className="lg:w-2/3">
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                  {isEditingProfile ? "Edit Your Information" : "Profile Details"}
+                </h3>
+                <form
+                  className={`grid grid-cols-1 gap-6 ${isEditingProfile ? "sm:grid-cols-2" : ""}`}
+                >
+                  {(['name', 'email', 'contact', 'password'] as Array<keyof typeof formData>).map((field) => (
+                    <div key={field}>
+                      <label
+                        htmlFor={field}
+                        className="block text-sm font-medium text-gray-700 capitalize"
+                      >
+                        {field}
+                      </label>
+                      <input
+                        type={field === "password" ? "password" : "text"}
+                        id={field}
+                        name={field}
+                        value={formData[field]}
+                        onChange={handleInputChange}
+                        disabled={!isEditingProfile}
+                        className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${
+                          isEditingProfile
+                            ? "border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                            : "bg-gray-100 cursor-not-allowed border-gray-200"
+                        }`}
+                      />
+                    </div>
+                  ))}
+                </form>
+              </div>
+            </div>
+          )}
+
+          {activeSection === "Inbox" && (
+            <div className="space-y-4">
+              <div className="flex justify-between mb-4">
+                <select name="status" value={filterOptions.status} onChange={handleFilterChange} className="p-2 border border-gray-300 rounded-md">
+                  <option value="">All Status</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+                <select name="category" value={filterOptions.category} onChange={handleFilterChange} className="p-2 border border-gray-300 rounded-md">
+                  <option value="">All Categories</option>
+                  <option value="Work">Work</option>
+                  <option value="Personal">Personal</option>
+                </select>
+              </div>
+              {filteredMessages.length > 0 ? (
+                filteredMessages.map((message, index) => (
+                  <div key={index} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex items-start space-x-4">
+                    <div className="w-10 h-10 flex-shrink-0">
+                      {message.image ? (
+                        <img src={message.image} alt={message.title} className="object-cover w-full h-full rounded-full border-2 border-blue-500" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gray-300 rounded-full border-2 border-gray-500">
+                          No Image
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-800">{message.title}</h3>
+                      <p className="text-gray-600">{message.description}</p>
+                      <div className="text-sm text-gray-500">
+                        <span>Status: {message.status}</span>
+                        <br />
+                        <span>Category: {message.category}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className="text-gray-600">No messages found for the selected filters.</p>
+              )}
+            </div>
+          )}
+
+          {activeSection !== "Profile" && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {(sections[activeSection] as SectionData).cards.map((card, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex flex-col"
+                >
+                  <img
+                    src={card.image ?? ""}
+                    alt={card.title}
+                    className="w-full h-48 object-cover rounded-t-lg mb-4"
+                  />
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {card.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">{card.description}</p>
+                  <div className="mt-auto flex justify-between items-center">
+                    {activeSection === "Mentors" ? (
+                      <button
+                        onClick={() => handleFollow(card.id)}
+                        className="px-4 py-2 rounded-lg shadow focus:outline-none focus:ring-2 bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-400"
+                      >
+                        Follow
+                      </button>
+                    ) : activeSection === "Home" ? (
+                      <button
+                        onClick={() => console.log(`Learn more about ${card.title}`)}
+                        className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+                      >
+                        Learn More
+                      </button>
+                    ) : null}
+                    <a
+                      href={`/profile/${card.id}`}
+                      className="text-blue-500 hover:underline text-sm"
+                    >
+                      View Profile
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </div>
